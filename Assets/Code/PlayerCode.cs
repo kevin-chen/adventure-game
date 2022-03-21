@@ -5,8 +5,12 @@ using UnityEngine.AI;
 
 public class PlayerCode : MonoBehaviour
 {
+    int bulletForce = 500;
     NavMeshAgent _navAgent;
     Camera mainCam;
+
+    public GameObject bulletPrefab;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start() {
@@ -23,6 +27,11 @@ public class PlayerCode : MonoBehaviour
                 _navAgent.destination = hit.point;
             }
         }
+
+        if (Input.GetMouseButtonDown(1)) {
+            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
+            newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce);
+        }
     }
 
     IEnumerator GoRandomPoint() {
@@ -30,6 +39,13 @@ public class PlayerCode : MonoBehaviour
             yield return new WaitForSeconds(1);
             Vector3 point = new Vector3(Random.Range(-2, 2), 0, Random.Range(-2, 2));
             _navAgent.destination = point;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Key")) {
+            PublicVars.keyNum += 1;
+            Destroy(other.gameObject);
         }
     }
 }

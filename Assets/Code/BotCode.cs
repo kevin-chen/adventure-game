@@ -25,8 +25,16 @@ public class BotCode : MonoBehaviour
 
     IEnumerator FindPlayer() {
         while (true) {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
             _navAgent.destination = player.transform.position;
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Bullet")) {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
