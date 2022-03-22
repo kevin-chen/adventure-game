@@ -7,66 +7,23 @@ public class Minigame : MonoBehaviour
 
     bool isMiniGameActivated = false;
     public GameObject miniGameUI;
-    public Transform miniGameImage;
-
+    public Transform miniGameBar;
+    public Transform goalBar;
     Vector2 imageStartPos;
 
     bool isPlayerStopped = false;
 
     void Start()
     {
-        imageStartPos = miniGameImage.position;
+        imageStartPos = miniGameBar.position;
+        FindInitialGoalPosition();
     }
 
     void Update()
     {
-        // Lerp
-
-        // float pingpong = Mathf.Lerp(-10, 10, Time.deltaTime);
-        // print(pingpong);
-        // Vector2 pos = miniGameImage.position;
-        // pos.x += pingpong;
-        // miniGameImage.position = pos;
-
-
-
-
-        // Ping Pong
-
-        if (Input.GetKeyDown(KeyCode.Space) && !isPlayerStopped)
-        {
-            isPlayerStopped = true;
-        }
-        if (!isPlayerStopped)
-        {
-            int maxOscillateVal = 10;
-            float pingpong = Mathf.PingPong(Time.time, maxOscillateVal);
-            // float mapped = Map(pingpong, 0, maxOscillateVal, -2, 2);
-            float mapped = oscillate(Time.time, 7, 200);
-            print("\nFactor: " + mapped);
-            Vector2 pos = imageStartPos;
-            print("Before: " + miniGameImage.position.x);
-            pos.x += mapped;
-            miniGameImage.position = pos;
-            print("After: " + miniGameImage.position.x);
-        }
-
-
-
-        // Sin Cos Osciallation
-
-        // float cycles = Time.time / 2;
-        // const float tau = Mathf.PI * 2;
-        // float rawSineWave = Mathf.Sin(cycles * tau);
-
-        // float movementFactor = rawSineWave / 2f + 0.5f;
-        // Vector3 movementVector = new Vector3(0,0,0);
-
-        // Vector3 offset = movementFactor * movementVector;
-        // miniGameImage.position = offset;
-
-
+        OscillateBar();
         CheckActivateGame();
+        CheckStopBar();
     }
 
     public static float Map(float value, float from1, float to1, float from2, float to2)
@@ -77,6 +34,50 @@ public class Minigame : MonoBehaviour
     float oscillate(float time, float speed, float scale)
     {
         return Mathf.Cos(time * speed / Mathf.PI) * scale;
+    }
+
+    void FindInitialGoalPosition()
+    {
+        int randomRange = Random.Range(-100, 100);
+        Vector2 goalPos = imageStartPos;
+        goalPos.x += randomRange;
+        goalBar.position = goalPos;
+    }
+
+    void CheckStopBar()
+    {
+        // Ping Pong
+        if (Input.GetKeyDown(KeyCode.Space) && !isPlayerStopped)
+        {
+            isPlayerStopped = true;
+        }
+        if (isPlayerStopped)
+        {
+            float goalBarLeft = goalBar.position.x - 30;
+            float goalBarRight = goalBar.position.x + 30;
+            float gameBar = miniGameBar.position.x;
+            if (gameBar > goalBarLeft && gameBar < goalBarRight)
+            {
+                print("Winner");
+            }
+        }
+    }
+
+    void OscillateBar()
+    {
+        if (!isPlayerStopped)
+        {
+            int maxOscillateVal = 10;
+            float pingpong = Mathf.PingPong(Time.time, maxOscillateVal);
+            // float mapped = Map(pingpong, 0, maxOscillateVal, -2, 2);
+            float mapped = oscillate(Time.time, 7, 200);
+            // print("\nFactor: " + mapped);
+            Vector2 pos = imageStartPos;
+            // print("Before: " + miniGameBar.position.x);
+            pos.x += mapped;
+            miniGameBar.position = pos;
+            // print("After: " + miniGameBar.position.x);
+        }
     }
 
     void CheckActivateGame()
