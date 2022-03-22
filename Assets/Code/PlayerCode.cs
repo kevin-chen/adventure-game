@@ -5,13 +5,18 @@ using UnityEngine.AI;
 
 public class PlayerCode : MonoBehaviour
 {
-    int bulletForce = 500;
+    //=======navigating========
     NavMeshAgent _navAgent;
     Camera mainCam;
 
+    //=======shooting==========
+    int bulletForce = 500;
     public GameObject bulletPrefab;
     public Transform spawnPoint;
     public Transform gun;
+
+    //========running==========
+    public int speed_multipler = 2;
 
 
     void Start()
@@ -19,6 +24,7 @@ public class PlayerCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         mainCam = Camera.main;
         // StartCoroutine(GoRandomPoint());
+        
     }
 
 
@@ -41,6 +47,16 @@ public class PlayerCode : MonoBehaviour
 
             GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
             newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
+        }
+
+
+        // running
+        if(Input.GetKeyDown("left shift"))
+        {
+            _navAgent.speed *= speed_multipler;
+        }
+        if(Input.GetKeyUp("left shift")){
+            _navAgent.speed /= speed_multipler;
         }
     }
 
