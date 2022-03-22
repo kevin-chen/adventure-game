@@ -13,7 +13,7 @@ public class PlayerCode : MonoBehaviour
     public Transform spawnPoint;
     public Transform gun;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
@@ -21,9 +21,10 @@ public class PlayerCode : MonoBehaviour
         // StartCoroutine(GoRandomPoint());
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        // navigating
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -33,6 +34,7 @@ public class PlayerCode : MonoBehaviour
             }
         }
 
+        // shooting
         if (Input.GetMouseButtonDown(1))
         {
             lookMouse();
@@ -47,6 +49,7 @@ public class PlayerCode : MonoBehaviour
         lookMouse();
     }
 
+    // gun direction
     private void lookMouse()
     {
         RaycastHit hit;
@@ -58,6 +61,7 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
+    // enemy AI?
     IEnumerator GoRandomPoint()
     {
         while (true)
