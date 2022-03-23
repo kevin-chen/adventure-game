@@ -12,6 +12,7 @@ public class PlayerCode : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform spawnPoint;
     public Transform gun;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +25,31 @@ public class PlayerCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!SliderMinigame.isMiniGameActivated)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+            if (Input.GetMouseButtonDown(0))
             {
-                _navAgent.destination = hit.point;
+                RaycastHit hit;
+                if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+                {
+                    _navAgent.destination = hit.point;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                lookMouse();
+
+                GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
+                newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
             }
         }
-
-        if (Input.GetMouseButtonDown(1))
+        else
         {
-            lookMouse();
 
-            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
-            newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
         }
+
+
     }
 
     void FixedUpdate()
