@@ -5,28 +5,35 @@ using UnityEngine.AI;
 
 public class PlayerCode : MonoBehaviour
 {
-    int bulletForce = 500;
+    //=======navigating========
     NavMeshAgent _navAgent;
     Camera mainCam;
 
+    //=======shooting==========
+    int bulletForce = 500;
     public GameObject bulletPrefab;
     public Transform spawnPoint;
     public Transform gun;
-    
 
-    // Start is called before the first frame update
+
+    //========running==========
+    public int speed_multipler = 2;
+
+
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
         mainCam = Camera.main;
         // StartCoroutine(GoRandomPoint());
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (!SliderMinigame.isMiniGameActivated)
         {
+            // navigating
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
@@ -36,6 +43,7 @@ public class PlayerCode : MonoBehaviour
                 }
             }
 
+            // shooting
             if (Input.GetMouseButtonDown(1))
             {
                 lookMouse();
@@ -43,13 +51,18 @@ public class PlayerCode : MonoBehaviour
                 GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
             }
+
+
+            // running
+            if (Input.GetKeyDown("left shift"))
+            {
+                _navAgent.speed *= speed_multipler;
+            }
+            if (Input.GetKeyUp("left shift"))
+            {
+                _navAgent.speed /= speed_multipler;
+            }
         }
-        else
-        {
-
-        }
-
-
     }
 
     void FixedUpdate()
@@ -57,6 +70,7 @@ public class PlayerCode : MonoBehaviour
         lookMouse();
     }
 
+    // gun direction
     private void lookMouse()
     {
         RaycastHit hit;
@@ -68,6 +82,7 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
+    // enemy AI?
     IEnumerator GoRandomPoint()
     {
         while (true)
