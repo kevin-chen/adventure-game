@@ -15,6 +15,7 @@ public class PlayerCode : MonoBehaviour
     public Transform spawnPoint;
     public Transform gun;
 
+
     //========running==========
     public int speed_multipler = 2;
 
@@ -24,39 +25,43 @@ public class PlayerCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         mainCam = Camera.main;
         // StartCoroutine(GoRandomPoint());
-        
+
     }
 
 
     void Update()
     {
-        // navigating
-        if (Input.GetMouseButtonDown(0))
+        if (!SliderMinigame.isMiniGameActivated)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+            // navigating
+            if (Input.GetMouseButtonDown(0))
             {
-                _navAgent.destination = hit.point;
+                RaycastHit hit;
+                if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+                {
+                    _navAgent.destination = hit.point;
+                }
             }
-        }
 
-        // shooting
-        if (Input.GetMouseButtonDown(1))
-        {
-            lookMouse();
+            // shooting
+            if (Input.GetMouseButtonDown(1))
+            {
+                lookMouse();
 
-            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
-            newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
-        }
+                GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
+                newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
+            }
 
 
-        // running
-        if(Input.GetKeyDown("left shift"))
-        {
-            _navAgent.speed *= speed_multipler;
-        }
-        if(Input.GetKeyUp("left shift")){
-            _navAgent.speed /= speed_multipler;
+            // running
+            if (Input.GetKeyDown("left shift"))
+            {
+                _navAgent.speed *= speed_multipler;
+            }
+            if (Input.GetKeyUp("left shift"))
+            {
+                _navAgent.speed /= speed_multipler;
+            }
         }
     }
 
