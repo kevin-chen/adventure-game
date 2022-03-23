@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class SliderMinigame : MonoBehaviour
 {
-
-    public static bool isMiniGameActivated = false;
     public GameObject miniGameUI;
     public Transform gameBar;
     public Transform goalBar;
@@ -27,7 +25,7 @@ public class SliderMinigame : MonoBehaviour
 
     void Update()
     {
-        if (!isMiniGameActivated)
+        if (!PublicVars.isMiniGameActivated)
         {
             print("not active");
             CheckActivateGame();
@@ -43,7 +41,7 @@ public class SliderMinigame : MonoBehaviour
     public void TogglePauseGame()
     {
         print("Toggling Pause");
-        if(isMiniGameActivated)
+        if(PublicVars.isMiniGameActivated)
         {
             Time.timeScale = 1f;
             DeactivateSliderMinigame();
@@ -118,13 +116,13 @@ public class SliderMinigame : MonoBehaviour
     }
 
     void ActivateSliderMinigame() {
-        isMiniGameActivated = true;
+        PublicVars.isMiniGameActivated = true;
         miniGameUI.SetActive(true);
         // TogglePauseGame();
     }
 
     void DeactivateSliderMinigame() {
-        isMiniGameActivated = false;
+        PublicVars.isMiniGameActivated = false;
         miniGameUI.SetActive(false);
         // TogglePauseGame();
     }
@@ -133,7 +131,7 @@ public class SliderMinigame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if (!isMiniGameActivated)
+            if (!PublicVars.isMiniGameActivated)
             {
                 ActivateSliderMinigame();
                 TogglePauseGame();

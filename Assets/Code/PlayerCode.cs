@@ -31,7 +31,7 @@ public class PlayerCode : MonoBehaviour
 
     void Update()
     {
-        if (!SliderMinigame.isMiniGameActivated)
+        if (!PublicVars.isMiniGameActivated)
         {
             // navigating
             if (Input.GetMouseButtonDown(0))

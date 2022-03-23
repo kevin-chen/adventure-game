@@ -19,7 +19,7 @@ public class ActivateSliderMinigame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !SliderMinigame.isMiniGameActivated)
+        if (other.CompareTag("Player") && !PublicVars.isMiniGameActivated)
         {
             print("Touching Player");
             SliderMinigame script = gameObject.GetComponent<SliderMinigame>();
