@@ -283,9 +283,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf1db67fb5864ebeb2100945f33abe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 8386815655642412477, guid: a9b79e44722e9bc4fb97c596bb5bd4d7, type: 3}
   bulletPrefab: {fileID: 6789913658106852972, guid: 8fca8e226b0c548ee8d9a1cfa52fa465, type: 3}
   spawnPoint: {fileID: 9002328646940335927}
   gun: {fileID: 9002328646599389223}
+  shoot_cooldown: 1
+  speed_multipler: 2
 --- !u!1 &9002328647532074968
 GameObject:
   m_ObjectHideFlags: 0

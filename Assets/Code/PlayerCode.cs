@@ -9,6 +9,8 @@ public class PlayerCode : MonoBehaviour
     NavMeshAgent _navAgent;
     Camera mainCam;
 
+    public GameObject arrowPrefab;
+
     //=======shooting==========
     int bulletForce = 500;
     public GameObject bulletPrefab;
@@ -46,6 +48,11 @@ public class PlayerCode : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
                 {
+                    GameObject oldArrow = GameObject.FindGameObjectWithTag("Arrow");
+                    if(oldArrow = GameObject.FindGameObjectWithTag("Arrow")){
+                        Destroy(oldArrow.gameObject);
+                    }
+                    GameObject newArrow = Instantiate(arrowPrefab, hit.point, transform.rotation);
                     _navAgent.destination = hit.point;
                 }
             }
@@ -103,12 +110,23 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Key"))
         {
             PublicVars.keyNum += 1;
             Destroy(other.gameObject);
+        }
+        // assinate guard
+        if(other.CompareTag("Back") && Input.GetKeyDown("e")){
+            Destroy(other.transform.parent.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        // be arrested
+        if(other.gameObject.CompareTag("Guard")){
+            transform.position = PublicVars.checkPoint;
         }
     }
 }
