@@ -15,6 +15,9 @@ public class PlayerCode : MonoBehaviour
     public Transform spawnPoint;
     public Transform gun;
 
+    public float shoot_cooldown = 1;
+    private float origin_shootcool;
+
 
     //========running==========
     public int speed_multipler = 2;
@@ -25,6 +28,9 @@ public class PlayerCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         mainCam = Camera.main;
         // StartCoroutine(GoRandomPoint());
+
+        // shoot_cool
+        origin_shootcool = shoot_cooldown;
 
     }
 
@@ -44,12 +50,15 @@ public class PlayerCode : MonoBehaviour
             }
 
             // shooting
-            if (Input.GetMouseButtonDown(1))
+            if(shoot_cooldown >= 0){
+                shoot_cooldown -= Time.deltaTime;
+            }
+            else if (Input.GetMouseButtonDown(1))
             {
                 lookMouse();
-
                 GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
+                shoot_cooldown = origin_shootcool;
             }
 
 
