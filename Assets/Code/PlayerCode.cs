@@ -9,11 +9,17 @@ public class PlayerCode : MonoBehaviour
     NavMeshAgent _navAgent;
     Camera mainCam;
 
+    public GameObject arrowPrefab;
+
     //=======shooting==========
     int bulletForce = 500;
     public GameObject bulletPrefab;
     public Transform spawnPoint;
     public Transform gun;
+
+    public float shoot_cooldown = 1;
+    private float origin_shootcool;
+
 
     //========running==========
     public int speed_multipler = 2;
@@ -24,39 +30,73 @@ public class PlayerCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         mainCam = Camera.main;
         // StartCoroutine(GoRandomPoint());
-        
+
+        // shoot_cool
+        origin_shootcool = shoot_cooldown;
+
+        GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
     }
 
 
     void Update()
     {
-        // navigating
-        if (Input.GetMouseButtonDown(0))
+        if (!PublicVars.isMiniGameActivated)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+            // navigating
+            if (Input.GetMouseButtonDown(0))
             {
-                _navAgent.destination = hit.point;
+                RaycastHit hit;
+                if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+                {
+                    // delete old arrow
+                    GameObject oldArrow = GameObject.FindGameObjectWithTag("Arrow");
+                    if(oldArrow = GameObject.FindGameObjectWithTag("Arrow")){
+                        Destroy(oldArrow.gameObject);
+                    }
+                    // create new arrow and navigate
+                    GameObject newArrow = Instantiate(arrowPrefab, hit.point, transform.rotation);
+                    _navAgent.destination = hit.point;
+                }
             }
-        }
 
-        // shooting
-        if (Input.GetMouseButtonDown(1))
-        {
-            lookMouse();
+            // shooting
+            if(shoot_cooldown >= 0){
+                shoot_cooldown -= Time.deltaTime;
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                lookMouse();
+                GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
+                newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
+                shoot_cooldown = origin_shootcool;
+            }
 
-            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
-            newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
-        }
+
+            // running
+            if (Input.GetKeyDown("left shift"))
+            {
+                _navAgent.speed *= speed_multipler;
+            }
+            if (Input.GetKeyUp("left shift"))
+            {
+                _navAgent.speed /= speed_multipler;
+            }
 
 
-        // running
-        if(Input.GetKeyDown("left shift"))
-        {
-            _navAgent.speed *= speed_multipler;
-        }
-        if(Input.GetKeyUp("left shift")){
-            _navAgent.speed /= speed_multipler;
+            // assassinate
+            if(Input.GetKeyDown("e")){
+                RaycastHit hit;
+                Ray ray = new Ray(transform.position, transform.forward);
+                if(Physics.Raycast(ray, out hit))
+                {
+                    if(hit.collider.CompareTag("Back"))
+                    {
+                        Destroy(hit.collider.transform.parent.gameObject);
+                    }
+                }
+            }
+
+
         }
     }
 
@@ -88,12 +128,20 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Key"))
         {
             PublicVars.keyNum += 1;
             Destroy(other.gameObject);
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        // be arrested
+        if(other.gameObject.CompareTag("Guard")){
+            transform.position = PublicVars.checkPoint;
         }
     }
 }

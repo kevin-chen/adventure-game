@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Key
   - Bullet
+  - BackgroundMusic
+  - DetectZone
+  - Back
+  - Guard
+  - Arrow
   layers:
   - Default
   - TransparentFX
