@@ -12,23 +12,23 @@ public class GuardCode : MonoBehaviour
     //=======random moving within range========
     private Vector3 MovingCenter;
 
-    public float moving_Cooldown = 2.5f;
-    public float moving_xRange = 5;
-    public float moving_zRange = 5;
+    public float moving_Cooldown = 5f;
+    public float moving_xRange = 3;
+    public float moving_zRange = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
         //player = GameObject.FindGameObjectWithTag("Player");
-        MovingCenter = transform.position;
+        MovingCenter = new Vector3(0, 0, 0);
         StartCoroutine(GoRandomPoint());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     IEnumerator FindPlayer() {
@@ -51,10 +51,10 @@ public class GuardCode : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(moving_Cooldown);
-            float xMovement = Random.Range(-moving_xRange, moving_xRange);
-            float zMovement = Random.Range(-moving_zRange, moving_zRange);
+            float xMovement = Random.Range(-moving_xRange - MovingCenter.x, moving_xRange - MovingCenter.x);
+            float zMovement = Random.Range(-moving_zRange - MovingCenter.z , moving_zRange - MovingCenter.z);
             Vector3 point = new Vector3(xMovement, 0, zMovement);
-            MovingCenter -= point;
+            MovingCenter += point;
             _navAgent.destination = point;
         }
     }
