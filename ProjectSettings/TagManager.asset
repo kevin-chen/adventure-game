@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Key
   - Bullet
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
