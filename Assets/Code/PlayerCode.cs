@@ -48,10 +48,12 @@ public class PlayerCode : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
                 {
+                    // delete old arrow
                     GameObject oldArrow = GameObject.FindGameObjectWithTag("Arrow");
                     if(oldArrow = GameObject.FindGameObjectWithTag("Arrow")){
                         Destroy(oldArrow.gameObject);
                     }
+                    // create new arrow and navigate
                     GameObject newArrow = Instantiate(arrowPrefab, hit.point, transform.rotation);
                     _navAgent.destination = hit.point;
                 }
@@ -79,6 +81,22 @@ public class PlayerCode : MonoBehaviour
             {
                 _navAgent.speed /= speed_multipler;
             }
+
+
+            // assassinate
+            if(Input.GetKeyDown("e")){
+                RaycastHit hit;
+                Ray ray = new Ray(transform.position, transform.forward);
+                if(Physics.Raycast(ray, out hit))
+                {
+                    if(hit.collider.CompareTag("Back"))
+                    {
+                        Destroy(hit.collider.transform.parent.gameObject);
+                    }
+                }
+            }
+
+
         }
     }
 
@@ -117,10 +135,7 @@ public class PlayerCode : MonoBehaviour
             PublicVars.keyNum += 1;
             Destroy(other.gameObject);
         }
-        // assinate guard
-        if(other.CompareTag("Back") && Input.GetKeyDown("e")){
-            Destroy(other.transform.parent.gameObject);
-        }
+
     }
 
     private void OnCollisionEnter(Collision other) {

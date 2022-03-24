@@ -7,6 +7,8 @@ public static class PublicVars
     //==========general settings===========
     public static Vector3 checkPoint;
     public static int keyNum = 0;
+
+    public static int bulletsNum = 0;
     //========mini game stats============
     public static bool isMiniGameActivated = false;
 
