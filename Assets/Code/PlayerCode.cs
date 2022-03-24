@@ -32,6 +32,7 @@ public class PlayerCode : MonoBehaviour
         // shoot_cool
         origin_shootcool = shoot_cooldown;
 
+         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
     }
 
 
