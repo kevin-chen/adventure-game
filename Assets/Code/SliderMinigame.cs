@@ -49,6 +49,7 @@ public class SliderMinigame : MonoBehaviour
         else
         {
             Time.timeScale = 0;
+            restartGame();
             ActivateSliderMinigame();
         }
     }
@@ -84,6 +85,7 @@ public class SliderMinigame : MonoBehaviour
             {
                 print("Winner");
                 gameBarImage.color = Color.green;
+                PublicVars.isMini1Passed = true;
             } else {
                 gameBarImage.color = Color.red;
             }
@@ -141,5 +143,15 @@ public class SliderMinigame : MonoBehaviour
                 DeactivateSliderMinigame();
             }
         }
+    }
+
+    void restartGame(){
+        if(!PublicVars.isMini1Passed){
+            isPlayerStopped = false;
+            imageStartPos = gameBar.position;
+            FindInitialGoalPosition();
+            gameBarImage = gameBar.GetComponent<Image>();
+        }
+        else StartCoroutine(FinishMinigame());
     }
 }
