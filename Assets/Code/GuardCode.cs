@@ -48,6 +48,8 @@ public class GuardCode : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             _navAgent.destination = player.transform.position;
         }
+        _navAgent.SetDestination(movingCenter);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(GoRandomPoint());
     }
 
@@ -61,11 +63,12 @@ public class GuardCode : MonoBehaviour
 
     IEnumerator GoRandomPoint()
     {
-
         while(!PublicVars.isDetected){
-            yield return new WaitForSeconds(moving_Cooldown);
 
+            yield return new WaitForSeconds(moving_Cooldown/2);
             if(PublicVars.isDetected) break;
+            yield return new WaitForSeconds(moving_Cooldown/2);
+            
             xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
             zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
             // destination
