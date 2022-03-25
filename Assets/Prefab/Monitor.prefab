@@ -236,12 +236,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8658489670693681655}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 749836c2cd78aa14480dc0b3d08d0165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillateSpeed: 10
+  oscillateSpeed: 0.1
+  from: {x: 0, y: 30, z: 0}
+  to: {x: 0, y: 150, z: 0}
 --- !u!1001 &3004812931911002510
 PrefabInstance:
   m_ObjectHideFlags: 0

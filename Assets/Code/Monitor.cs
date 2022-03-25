@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class Monitor : MonoBehaviour
 {
-    public int oscillateSpeed = 10;
+    public float oscillateSpeed = 1;
+
+    public Vector3 from = new Vector3(0f, -60f, 0);
+    public Vector3 to = new Vector3(0f, 60f, 0);
     void Start()
     {
-        StartCoroutine(Oscillate());
+
     }
 
-    float oscillate(float time, float speed, float scale)
-    {
-        return Mathf.Cos(time * speed / Mathf.PI) * scale;
+    private void Update() {
+        float pingpong = (Mathf.Sin(Time.time * oscillateSpeed * Mathf.PI * 2.0f) + 1.0f) / 2.0f;
+
+        //float mapped = oscillate(Time.unscaledTime, oscillateSpeed, 200);
+        transform.eulerAngles = Vector3.Lerp(from, to, pingpong);
     }
-    IEnumerator Oscillate(){
-        
 
-        while(true){
-            //int maxOscillateVal = 10;
-            //float pingpong = Mathf.PingPong(Time.unscaledTime, maxOscillateVal);
-            float pingpong = (Mathf.Sin (Time.time * oscillateSpeed * Mathf.PI * 2.0f) + 1.0f) / 2.0f;
-
-            //float mapped = oscillate(Time.unscaledTime, oscillateSpeed, 200);
-            transform.eulerAngles = Vector3.Lerp (new Vector3(0, -1, 0), new Vector3(0, 1, 0), pingpong);
-
-        }
-    }
 }
