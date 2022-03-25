@@ -18,6 +18,10 @@ public class GuardCode : MonoBehaviour
     public float moving_xRange = 3;
     public float moving_zRange = 3;
 
+    public float xMovement;
+
+    public float zMovement;
+
 
     //==========detect===================
     void Start()
@@ -62,8 +66,8 @@ public class GuardCode : MonoBehaviour
             yield return new WaitForSeconds(moving_Cooldown);
 
             if(PublicVars.isDetected) break;
-            float xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-            float zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+            xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+            zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
             // destination
             Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
             // adjust difference
