@@ -102,9 +102,7 @@ public class PlayerCode : MonoBehaviour
     {
         lookMouse();
 
-
-
-
+        // in or out the detect zone
         if(true){
             RaycastHit hit;
             if(Physics.Raycast(transform.position, transform.forward, out hit, 0.5f)){
@@ -160,7 +158,7 @@ public class PlayerCode : MonoBehaviour
 
 
     IEnumerator wait(){
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         PublicVars.isDetected = false;
     }
 }

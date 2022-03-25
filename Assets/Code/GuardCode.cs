@@ -17,7 +17,8 @@ public class GuardCode : MonoBehaviour
     public float moving_xRange = 3;
     public float moving_zRange = 3;
 
-    // Start is called before the first frame update
+
+    //==========detect===================
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
@@ -27,14 +28,14 @@ public class GuardCode : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void FixedUpdate() {
+        if(PublicVars.isDetected){
+            transform.Find("head").gameObject.SetActive(true);
+        }
+        else{
+            transform.Find("head").gameObject.SetActive(false);
+        }
 
-        
     }
 
     IEnumerator FindPlayer() {
@@ -57,15 +58,15 @@ public class GuardCode : MonoBehaviour
     {
 
         while(!PublicVars.isDetected){
-                yield return new WaitForSeconds(moving_Cooldown);
-                if(PublicVars.isDetected) break;
-                float xMovement = Random.Range(-moving_xRange - MovingCenter.x, moving_xRange - MovingCenter.x);
-                float zMovement = Random.Range(-moving_zRange - MovingCenter.z , moving_zRange - MovingCenter.z);
+            yield return new WaitForSeconds(moving_Cooldown);
 
-                Vector3 point = new Vector3(xMovement, 0, zMovement);
-                MovingCenter += point;
-                _navAgent.destination = point;
+            if(PublicVars.isDetected) break;
+            float xMovement = Random.Range(-moving_xRange - MovingCenter.x, moving_xRange - MovingCenter.x);
+            float zMovement = Random.Range(-moving_zRange - MovingCenter.z , moving_zRange - MovingCenter.z);
 
+            Vector3 point = new Vector3(xMovement, 0, zMovement);
+            MovingCenter += point;
+            _navAgent.destination = point;
         }
         StartCoroutine(FindPlayer());
     }
