@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e4eb9485a6d7946905be8cf1c87134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving_Cooldown: 6
+  moving_Cooldown: 4
   moving_xRange: 3
   moving_zRange: 3
 --- !u!1 &6027499054158706545
@@ -347,10 +347,10 @@ GameObject:
   - component: {fileID: 135061068471122028}
   - component: {fileID: 7966628286742948533}
   - component: {fileID: 4606701621290562302}
-  - component: {fileID: 906421101297804245}
+  - component: {fileID: 3785912659721304964}
   m_Layer: 0
   m_Name: Cone
-  m_TagString: Untagged
+  m_TagString: DetectZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,8 +363,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9199980283913932687}
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 3.7, y: -1.5, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.7, y: -1.5, z: 3.91}
+  m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3824931512076998063}
@@ -1123,7 +1123,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9199980283913932687}
   m_Mesh: {fileID: 0}
---- !u!64 &906421101297804245
+--- !u!64 &3785912659721304964
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1131,9 +1131,9 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9199980283913932687}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}

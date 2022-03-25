@@ -2335,7 +2335,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-58376
+  m_Name: pb_Mesh-92432
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4913,6 +4913,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 826081769}
+    - target: {fileID: 3785912659721304964, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 826081769}
     - target: {fileID: 3824931512076998063, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4965,17 +4969,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 6752191523494086212, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6936074111087230167, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 826081769}
     - target: {fileID: 6936074111087230167, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
       propertyPath: m_VersionIndex
-      value: 4306
+      value: 4354
       objectReference: {fileID: 0}
     - target: {fileID: 8642679710940960307, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
       propertyPath: moving_Cooldown
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
