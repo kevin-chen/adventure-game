@@ -14,7 +14,7 @@ public class GuardCode : MonoBehaviour
     public Vector3 movingDiff;
     private Vector3 respawnPos;
 
-    public float moving_Cooldown = 4f;
+    public float moving_Cooldown = 5.5f;
     public float moving_xRange = 3;
     public float moving_zRange = 3;
 
