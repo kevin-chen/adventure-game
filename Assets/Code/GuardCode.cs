@@ -10,7 +10,8 @@ public class GuardCode : MonoBehaviour
 
 
     //=======random moving within range========
-    private Vector3 MovingCenter;
+    public Vector3 movingCenter;
+    public Vector3 movingDiff;
     private Vector3 respawnPos;
 
     public float moving_Cooldown = 4f;
@@ -23,7 +24,7 @@ public class GuardCode : MonoBehaviour
     {
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
-        MovingCenter = new Vector3(0, 0, 0);
+        movingCenter = transform.position;
         StartCoroutine(GoRandomPoint());
 
     }
@@ -61,12 +62,14 @@ public class GuardCode : MonoBehaviour
             yield return new WaitForSeconds(moving_Cooldown);
 
             if(PublicVars.isDetected) break;
-            float xMovement = Random.Range(-moving_xRange - MovingCenter.x, moving_xRange - MovingCenter.x);
-            float zMovement = Random.Range(-moving_zRange - MovingCenter.z , moving_zRange - MovingCenter.z);
-
-            Vector3 point = new Vector3(xMovement, 0, zMovement);
-            MovingCenter += point;
-            _navAgent.destination = point;
+            float xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+            float zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+            // destination
+            Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
+            // adjust difference
+            movingDiff = dest - movingCenter;
+            
+            _navAgent.SetDestination(dest);
         }
         StartCoroutine(FindPlayer());
     }

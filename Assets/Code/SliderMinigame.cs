@@ -27,7 +27,7 @@ public class SliderMinigame : MonoBehaviour
     {
         if (!PublicVars.isMiniGameActivated)
         {
-            print("not active");
+            //print("not active");
             CheckActivateGame();
         }
         else
