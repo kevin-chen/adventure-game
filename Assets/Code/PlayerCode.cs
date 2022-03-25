@@ -95,14 +95,24 @@ public class PlayerCode : MonoBehaviour
                     }
                 }
             }
-
-
         }
     }
 
     void FixedUpdate()
     {
         lookMouse();
+
+        // in or out the detect zone
+        if(true){
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, transform.forward, out hit, 0.5f)){
+                if(hit.collider.CompareTag("DetectZone")){
+                    print("detected");
+                    PublicVars.isDetected = true;
+                    StartCoroutine(wait());
+                }
+            }
+        }
     }
 
     // gun direction
@@ -140,8 +150,15 @@ public class PlayerCode : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         // be arrested
+
         if(other.gameObject.CompareTag("Guard")){
             transform.position = PublicVars.checkPoint;
         }
+    }
+
+
+    IEnumerator wait(){
+        yield return new WaitForSeconds(6);
+        PublicVars.isDetected = false;
     }
 }
