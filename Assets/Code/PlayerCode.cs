@@ -109,7 +109,7 @@ public class PlayerCode : MonoBehaviour
                 if(hit.collider.CompareTag("DetectZone")){
                     print("detected");
                     PublicVars.isDetected = true;
-                    StartCoroutine(wait());
+                    StartCoroutine(waitToUndetect());
                 }
             }
         }
@@ -157,8 +157,8 @@ public class PlayerCode : MonoBehaviour
     }
 
 
-    IEnumerator wait(){
-        yield return new WaitForSeconds(6);
+    IEnumerator waitToUndetect(){
+        yield return new WaitForSeconds(8);
         PublicVars.isDetected = false;
     }
 }
