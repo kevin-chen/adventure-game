@@ -4979,7 +4979,7 @@ PrefabInstance:
       objectReference: {fileID: 826081769}
     - target: {fileID: 6936074111087230167, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
       propertyPath: m_VersionIndex
-      value: 4420
+      value: 4423
       objectReference: {fileID: 0}
     - target: {fileID: 8642679710940960307, guid: 424c062c99c225c4a82dd14a2f33e73a, type: 3}
       propertyPath: moving_Cooldown
