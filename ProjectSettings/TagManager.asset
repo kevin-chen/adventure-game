@@ -11,6 +11,7 @@ TagManager:
   - Back
   - Guard
   - Arrow
+  - Floor
   layers:
   - Default
   - TransparentFX
