@@ -9,7 +9,7 @@ public static class PublicVars
     public static int keyNum = 0;
     public static int bulletsNum = 0;
     public static float health;
-    public static float stamina
+    public static float stamina;
     ;
     //========mini game stats============
     public static bool isMiniGameActivated = false;
