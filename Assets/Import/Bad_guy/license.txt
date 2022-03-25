@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bad guy
+* source:	https://sketchfab.com/3d-models/bad-guy-e921824079e747a5a4cffe0155b50130
+* author:	AgkshayanC (https://sketchfab.com/AgkshayanC)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bad guy" (https://sketchfab.com/3d-models/bad-guy-e921824079e747a5a4cffe0155b50130) by AgkshayanC (https://sketchfab.com/AgkshayanC) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
