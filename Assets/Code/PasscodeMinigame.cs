@@ -42,6 +42,7 @@ public class PasscodeMinigame : MonoBehaviour
 
         if (answer == sum) {
             print("HEYY!!");
+            PublicVars.isPasscodeMiniGamePassed = true;
             StartCoroutine(FinishMinigame());
         }
     }

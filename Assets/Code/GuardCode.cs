@@ -29,8 +29,7 @@ public class GuardCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         movingCenter = transform.position;
-        StartCoroutine(GoRandomPoint());
-
+        StartCoroutine(GuardDecisionLogic());
     }
 
     private void FixedUpdate() {
@@ -40,19 +39,31 @@ public class GuardCode : MonoBehaviour
         else{
             transform.Find("head").gameObject.SetActive(false);
         }
-
     }
 
-    IEnumerator FindPlayer() {
-        while (PublicVars.isDetected) {
-            yield return new WaitForSeconds(0.5f);
-            _navAgent.destination = player.transform.position;
+    IEnumerator GuardDecisionLogic() {
+        while (true) {
+            bool isPlayerDetected = PublicVars.isDetected;
+            if (isPlayerDetected) {
+                yield return new WaitForSeconds(0.5f);
+                _navAgent.destination = player.transform.position;
+            } else {
+                yield return new WaitForSeconds(moving_Cooldown/2);
+                if(PublicVars.isDetected) continue;
+                // yield return new WaitForSeconds(moving_Cooldown/2);
+                
+                xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+                zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+                // destination
+                Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
+                // adjust difference
+                movingDiff = dest - movingCenter;
+                
+                _navAgent.SetDestination(dest);
+            }
         }
-        _navAgent.SetDestination(movingCenter);
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(GoRandomPoint());
     }
-
+  
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet")) {
@@ -60,27 +71,4 @@ public class GuardCode : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    IEnumerator GoRandomPoint()
-    {
-        while(!PublicVars.isDetected){
-
-            yield return new WaitForSeconds(moving_Cooldown/2);
-            if(PublicVars.isDetected) break;
-            yield return new WaitForSeconds(moving_Cooldown/2);
-            
-            xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-            zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
-            // destination
-            Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
-            // adjust difference
-            movingDiff = dest - movingCenter;
-            
-            _navAgent.SetDestination(dest);
-        }
-        StartCoroutine(FindPlayer());
-    }
-
-
-    
 }
