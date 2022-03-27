@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 4645830004361501645}
   - component: {fileID: 4645830004361501646}
   - component: {fileID: 4645830004361501647}
-  - component: {fileID: 4645830004361501644}
   - component: {fileID: 4645830004361501635}
   - component: {fileID: 4645830004361501633}
   - component: {fileID: 4645830004361501634}
   m_Layer: 0
-  m_Name: MiniGameButton
+  m_Name: SliderMiniGameButton
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -30,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4645830004361501641}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.38, y: 0.29, z: 4.45}
   m_LocalScale: {x: 0.24054001, y: 0.58, z: -0.22056301}
   m_ConstrainProportionsScale: 0
@@ -101,18 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4645830004361501644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645830004361501641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb412fbc5c3ed43b495ea4139c4fbe59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &4645830004361501635
 Rigidbody:
   m_ObjectHideFlags: 0

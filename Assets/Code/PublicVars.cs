@@ -13,7 +13,8 @@ public static class PublicVars
     
     //========mini game stats============
     public static bool isMiniGameActivated = false;
-    public static bool isMini1Passed = false;
+    public static bool isSliderMiniGamePassed = false;
+    public static bool isPasscodeMiniGamePassed = false;
 
     //============security==============
     public static bool isDetected = false;
