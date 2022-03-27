@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 9002328646599389223}
   m_Layer: 7
   m_Name: Gun Pivot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 9002328646940335927}
   gun: {fileID: 9002328646599389223}
   shoot_cooldown: 1
-  speed_multipler: 2
+  speed_multipler: 5
 --- !u!1 &9002328647532074968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1192,7 @@ GameObject:
   - component: {fileID: 9002328647532074970}
   m_Layer: 7
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

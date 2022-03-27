@@ -32,7 +32,7 @@ public class SliderMinigame : MonoBehaviour
         }
         else
         {
-            print("active");
+            // print("active");
             OscillateBar();
             CheckStopBar();
         }
@@ -85,7 +85,7 @@ public class SliderMinigame : MonoBehaviour
             {
                 print("Winner");
                 gameBarImage.color = Color.green;
-                PublicVars.isMini1Passed = true;
+                PublicVars.isSliderMiniGamePassed = true;
             } else {
                 gameBarImage.color = Color.red;
             }
@@ -146,7 +146,7 @@ public class SliderMinigame : MonoBehaviour
     }
 
     void restartGame(){
-        if(!PublicVars.isMini1Passed){
+        if(!PublicVars.isSliderMiniGamePassed){
             isPlayerStopped = false;
             imageStartPos = gameBar.position;
             FindInitialGoalPosition();

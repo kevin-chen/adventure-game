@@ -19,7 +19,7 @@ public class ActivatePasscodeMinigame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !PublicVars.isMiniGameActivated)
+        if (other.CompareTag("Player") && !PublicVars.isMiniGameActivated && !PublicVars.isPasscodeMiniGamePassed)
         {
             print("Touching Player");
             PasscodeMinigame script = gameObject.GetComponent<PasscodeMinigame>();
