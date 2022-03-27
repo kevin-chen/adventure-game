@@ -50,7 +50,7 @@ public class GuardCode : MonoBehaviour
             } else {
                 yield return new WaitForSeconds(moving_Cooldown/2);
                 if(PublicVars.isDetected) continue;
-                // yield return new WaitForSeconds(moving_Cooldown/2);
+                yield return new WaitForSeconds(moving_Cooldown/2);
                 
                 xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
                 zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
@@ -58,6 +58,7 @@ public class GuardCode : MonoBehaviour
                 Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
                 // adjust difference
                 movingDiff = dest - movingCenter;
+                
                 
                 _navAgent.SetDestination(dest);
             }
