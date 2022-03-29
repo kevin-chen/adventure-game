@@ -5,11 +5,14 @@ using UnityEngine;
 public class Monitor : MonoBehaviour
 {
     public float oscillateSpeed = 1;
-
-    public Vector3 from = new Vector3(0f, 30f, 0);
-    public Vector3 to = new Vector3(0f, 150f, 0);
+    private Vector3 originAngle;
+    private Vector3 from;
+    private Vector3 to;
     void Start()
     {
+        originAngle = transform.rotation.eulerAngles;
+        from = originAngle - new Vector3(0f, 60f, 0);
+        to = originAngle + new Vector3(0f, 60f, 0);
 
     }
 
