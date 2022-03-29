@@ -23,7 +23,7 @@ public class ActivateSliderMinigame : MonoBehaviour
         {
             print("Touching Player");
             SliderMinigame script = gameObject.GetComponent<SliderMinigame>();
-            // Destroy(gameObject);
+            //Destroy(gameObject);
             script.TogglePauseGame();
         }
     }
