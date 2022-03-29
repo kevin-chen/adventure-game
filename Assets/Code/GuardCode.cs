@@ -22,7 +22,6 @@ public class GuardCode : MonoBehaviour
 
     public float zMovement;
 
-
     //==========detect===================
     void Start()
     {
@@ -58,8 +57,6 @@ public class GuardCode : MonoBehaviour
                 Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
                 // adjust difference
                 movingDiff = dest - movingCenter;
-                
-                
                 _navAgent.SetDestination(dest);
             }
         }
