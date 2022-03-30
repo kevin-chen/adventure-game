@@ -24,10 +24,12 @@ public class PlayerCode : MonoBehaviour
     //========running==========
     public int speed_multipler = 2;
 
-
+    //=========detect===========
+    //private Vector3 feetPos;
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
+        //feetPos = transform.Find("feet").po;
         mainCam = Camera.main;
         // StartCoroutine(GoRandomPoint());
 
@@ -40,6 +42,7 @@ public class PlayerCode : MonoBehaviour
 
     void Update()
     {
+    
         if (!PublicVars.isMiniGameActivated)
         {
             // navigating
@@ -95,6 +98,24 @@ public class PlayerCode : MonoBehaviour
                     }
                 }
             }
+
+
+            // in or out the detect zone
+            if(true){
+                RaycastHit hit;
+                Ray detectRay = new Ray(transform.Find("feet").position, transform.forward);
+                Debug.DrawRay(transform.Find("feet").position, transform.forward * 10);
+                if(Physics.Raycast(detectRay, out hit, 0.5f)){
+                    if(hit.collider.CompareTag("DetectZone")){
+                        print("detected");
+                        PublicVars.isDetected = true;
+                        StartCoroutine(waitToUndetect());
+                    }
+                }
+            }
+
+
+            
         }
     }
 
@@ -102,17 +123,7 @@ public class PlayerCode : MonoBehaviour
     {
         lookMouse();
 
-        // in or out the detect zone
-        if(true){
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, transform.forward, out hit, 0.5f)){
-                if(hit.collider.CompareTag("DetectZone")){
-                    print("detected");
-                    PublicVars.isDetected = true;
-                    StartCoroutine(waitToUndetect());
-                }
-            }
-        }
+
     }
 
     // gun direction
