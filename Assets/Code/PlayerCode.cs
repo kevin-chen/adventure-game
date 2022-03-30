@@ -103,7 +103,7 @@ public class PlayerCode : MonoBehaviour
             // in or out the detect zone
             if(true){
                 RaycastHit hit;
-                Ray detectRay = new Ray(transform.Find("feet").position, transform.forward);
+                Ray detectRay = new Ray(transform.Find("feet").position + new Vector3(0, 0.1f, 0), transform.forward);
                 Debug.DrawRay(transform.Find("feet").position, transform.forward);
                 if(Physics.Raycast(detectRay, out hit, 0.1f)){
                     if(hit.collider.CompareTag("DetectZone")){
@@ -169,7 +169,24 @@ public class PlayerCode : MonoBehaviour
 
 
     IEnumerator waitToUndetect(){
-        yield return new WaitForSeconds(8);
-        PublicVars.isDetected = false;
+        while(true){
+            if(PublicVars.isDetected){
+                yield return new WaitForSeconds(8);
+                PublicVars.isDetected = false;
+            }
+            else {
+                yield return new WaitForSeconds(0.5f);
+                RaycastHit hit;
+                Ray detectRay = new Ray(transform.Find("feet").position + new Vector3(0, 0.1f, 0), transform.forward);
+                if(Physics.Raycast(detectRay, out hit, 0.1f)){
+                    if(hit.collider.CompareTag("DetectZone")){
+                        print("detected");
+                        continue;
+                    }
+                }
+                PublicVars.isDetected = false;
+                break;
+            }
+        }
     }
 }

@@ -44,12 +44,13 @@ public class GuardCode : MonoBehaviour
         while (true) {
             bool isPlayerDetected = PublicVars.isDetected;
             if (isPlayerDetected) {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.1f);
                 _navAgent.destination = player.transform.position;
             } else {
-                yield return new WaitForSeconds(moving_Cooldown/2);
+                yield return new WaitForSeconds(0.4f);
                 if(PublicVars.isDetected) continue;
-                yield return new WaitForSeconds(moving_Cooldown/2);
+                yield return new WaitForSeconds(moving_Cooldown - 0.4f);
+
                 
                 xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
                 zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
@@ -59,6 +60,29 @@ public class GuardCode : MonoBehaviour
                 movingDiff = dest - movingCenter;
                 _navAgent.SetDestination(dest);
             }
+        }
+    }
+
+
+    IEnumerator newLogic(){
+        while(_navAgent.speed <= 0.1){
+            if(PublicVars.isDetected){
+                yield return new WaitForSeconds(0.5f);
+                _navAgent.destination = player.transform.position;
+            } else{
+                yield return new WaitForSeconds(0.5f);
+                if(PublicVars.isDetected) continue;
+                yield return new WaitForSeconds(moving_Cooldown - 0.5f);
+
+                xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+                zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+                // destination
+                Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
+                // adjust difference
+                movingDiff = dest - movingCenter;
+                _navAgent.SetDestination(dest);
+            }
+
         }
     }
   

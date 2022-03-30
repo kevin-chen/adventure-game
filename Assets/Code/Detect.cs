@@ -25,7 +25,21 @@ public class Detect : MonoBehaviour
     }
 
     IEnumerator waitToUndetect(){
-        yield return new WaitForSeconds(8);
-        PublicVars.isDetected = false;
+        while(true){
+            if(PublicVars.isDetected){
+                yield return new WaitForSeconds(8);
+                PublicVars.isDetected = false;
+            } else {
+                yield return new WaitForSeconds(0.5f);
+                RaycastHit hit;
+                Ray detectRay = new Ray(transform.position, transform.forward * 10);
+                if(Physics.Raycast(transform.position, transform.forward, out hit, 10, player)){
+                    print("detected");
+                    continue;
+                }
+                PublicVars.isDetected = false;
+                break;
+            }
+        }
     }
 }
