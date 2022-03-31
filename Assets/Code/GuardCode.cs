@@ -23,6 +23,7 @@ public class GuardCode : MonoBehaviour
     public float zMovement;
 
     //==========detect===================
+
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
@@ -32,15 +33,20 @@ public class GuardCode : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        // show the exclamation mark
         if(PublicVars.isDetected){
             transform.Find("head").gameObject.SetActive(true);
         }
         else{
             transform.Find("head").gameObject.SetActive(false);
         }
+        StartCoroutine(newLogic());
+        print("a");
 
-        if(PublicVars.chase_duration < 0){
+        // switch between randomly move and chasing
+        if(PublicVars.chase_duration > PublicVars.chase_limit){
             if(_navAgent.velocity == new Vector3(0,0,0)){
+                
                 xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
                 zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
                 // destination
@@ -50,12 +56,14 @@ public class GuardCode : MonoBehaviour
                 _navAgent.SetDestination(dest);
             }
         }
-        else if(PublicVars.chase_duration >= 0){
+        else if(PublicVars.chase_duration <= PublicVars.chase_limit){
             _navAgent.destination = player.transform.position;
         }
 
 
     }
+
+
 
     IEnumerator GuardDecisionLogic() {
         while (true) {
@@ -82,7 +90,7 @@ public class GuardCode : MonoBehaviour
 
 
     IEnumerator newLogic(){
-        while(_navAgent.speed <= 0.1){
+        while(_navAgent.velocity == new Vector3(0,0,0)){
             if(PublicVars.isDetected){
                 yield return new WaitForSeconds(0.5f);
                 _navAgent.destination = player.transform.position;

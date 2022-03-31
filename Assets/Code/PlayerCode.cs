@@ -35,7 +35,7 @@ public class PlayerCode : MonoBehaviour
         // shoot_cool
         origin_shootcool = shoot_cooldown;
         // chase_dur
-        PublicVars.origin_chaseDuration = PublicVars.chase_duration;
+        //PublicVars.origin_chaseDuration = PublicVars.chase_duration;
 
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
     }
@@ -109,11 +109,15 @@ public class PlayerCode : MonoBehaviour
                 if(Physics.Raycast(detectRay, out hit, 0.1f)){
                     if(hit.collider.CompareTag("DetectZone")){
                         print("detected");
-                        PublicVars.chase_duration = PublicVars.origin_chaseDuration;
+                        PublicVars.isDetected = true;
+                        PublicVars.chase_duration = 0;
                     }
                 }
-                else if(PublicVars.chase_duration >= 0){
-                    PublicVars.chase_duration -= Time.deltaTime;
+                else if(PublicVars.chase_duration <= PublicVars.chase_limit){
+                    PublicVars.chase_duration += Time.deltaTime;
+                }
+                else if(PublicVars.chase_duration > PublicVars.chase_limit){
+                    PublicVars.isDetected = false;
                 }
             }
 
