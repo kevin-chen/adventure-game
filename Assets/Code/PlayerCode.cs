@@ -19,6 +19,8 @@ public class PlayerCode : MonoBehaviour
     public Transform spawnPoint;
     public Transform gun;
 
+    Animator _animator;
+
     public float shoot_cooldown = 1;
     private float origin_shootcool;
 
@@ -33,6 +35,8 @@ public class PlayerCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
 
         mainCam = Camera.main;
+        _animator = GetComponent<Animator>();
+
 
         // shoot_cool
         origin_shootcool = shoot_cooldown;
@@ -45,7 +49,7 @@ public class PlayerCode : MonoBehaviour
 
     void Update()
     {
-    
+
         if (!PublicVars.isMiniGameActivated)
         {
             // navigating
@@ -67,7 +71,8 @@ public class PlayerCode : MonoBehaviour
             }
 
             // shooting
-            if(shoot_cooldown >= 0){
+            if (shoot_cooldown >= 0)
+            {
                 shoot_cooldown -= Time.deltaTime;
             }
             else if (Input.GetMouseButtonDown(1))
@@ -89,14 +94,26 @@ public class PlayerCode : MonoBehaviour
                 _navAgent.speed /= speed_multipler;
             }
 
+            print("Velocity: " + (_navAgent.velocity != new Vector3(0,0,0)));
+            _animator.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));
+
+
+            // if (_navAgent.speed > 0)
+            // {
+            //     print("Speed: " + _navAgent);
+            //     _animator.SetTrigger("Walk");
+            //     print("Player Walking");
+            // }
+
 
             // assassinate
-            if(Input.GetKeyDown("e")){
+            if (Input.GetKeyDown("e"))
+            {
                 RaycastHit hit;
                 Ray ray = new Ray(transform.position, transform.forward);
-                if(Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit))
                 {
-                    if(hit.collider.CompareTag("Back"))
+                    if (hit.collider.CompareTag("Back"))
                     {
                         Destroy(hit.collider.transform.parent.gameObject);
                     }
@@ -105,27 +122,32 @@ public class PlayerCode : MonoBehaviour
 
 
             // in or out the detect zone
-            if(true){
+            if (true)
+            {
                 RaycastHit hit;
                 Ray detectRay = new Ray(transform.Find("feet").position + new Vector3(0, 0.1f, 0), transform.forward);
                 Debug.DrawRay(transform.Find("feet").position, transform.forward);
-                if(Physics.Raycast(detectRay, out hit, 1f)){
-                    if(hit.collider.CompareTag("DetectZone")){
+                if (Physics.Raycast(detectRay, out hit, 1f))
+                {
+                    if (hit.collider.CompareTag("DetectZone"))
+                    {
                         print("detected");
                         PublicVars.isDetected = true;
                         PublicVars.chase_duration = 0;
                     }
                 }
-                else if(PublicVars.chase_duration <= PublicVars.chase_limit){
+                else if (PublicVars.chase_duration <= PublicVars.chase_limit)
+                {
                     PublicVars.chase_duration += Time.deltaTime;
                 }
-                else if(PublicVars.chase_duration > PublicVars.chase_limit){
+                else if (PublicVars.chase_duration > PublicVars.chase_limit)
+                {
                     PublicVars.isDetected = false;
                 }
             }
 
 
-            
+
         }
     }
 
@@ -169,27 +191,35 @@ public class PlayerCode : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other)
+    {
         // be arrested
 
-        if(other.gameObject.CompareTag("Guard")){
+        if (other.gameObject.CompareTag("Guard"))
+        {
             transform.position = PublicVars.checkPoint;
         }
     }
 
 
-    IEnumerator waitToUndetect(){
-        while(true){
-            if(PublicVars.isDetected){
+    IEnumerator waitToUndetect()
+    {
+        while (true)
+        {
+            if (PublicVars.isDetected)
+            {
                 yield return new WaitForSeconds(8);
                 PublicVars.isDetected = false;
             }
-            else {
+            else
+            {
                 yield return new WaitForSeconds(0.5f);
                 RaycastHit hit;
                 Ray detectRay = new Ray(transform.Find("feet").position + new Vector3(0, 0.1f, 0), transform.forward);
-                if(Physics.Raycast(detectRay, out hit, 0.1f)){
-                    if(hit.collider.CompareTag("DetectZone")){
+                if (Physics.Raycast(detectRay, out hit, 0.1f))
+                {
+                    if (hit.collider.CompareTag("DetectZone"))
+                    {
                         print("detected");
                         continue;
                     }
