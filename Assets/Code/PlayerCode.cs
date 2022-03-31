@@ -11,6 +11,8 @@ public class PlayerCode : MonoBehaviour
 
     public GameObject arrowPrefab;
 
+    public LayerMask ground;
+
     //=======shooting==========
     int bulletForce = 500;
     public GameObject bulletPrefab;
@@ -50,16 +52,17 @@ public class PlayerCode : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
+                if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200, ground))
                 {
                     // delete old arrow
                     GameObject oldArrow = GameObject.FindGameObjectWithTag("Arrow");
-                    if(oldArrow = GameObject.FindGameObjectWithTag("Arrow")){
+                    if(oldArrow){
                         Destroy(oldArrow.gameObject);
                     }
                     // create new arrow and navigate
-                    GameObject newArrow = Instantiate(arrowPrefab, hit.point, transform.rotation);
-                    _navAgent.destination = hit.point;
+                    Vector3 dest = hit.point;
+                    GameObject newArrow = Instantiate(arrowPrefab, dest, transform.rotation);
+                    _navAgent.destination = dest;
                 }
             }
 

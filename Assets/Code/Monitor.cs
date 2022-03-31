@@ -6,13 +6,15 @@ public class Monitor : MonoBehaviour
 {
     public float oscillateSpeed = 1;
     private Vector3 originAngle;
-    private Vector3 from;
-    private Vector3 to;
+    public Vector3 from;
+    public Vector3 to;
+
+    public float Angle = 60f;
     void Start()
     {
         originAngle = transform.rotation.eulerAngles;
-        from = originAngle - new Vector3(0f, 60f, 0);
-        to = originAngle + new Vector3(0f, 60f, 0);
+        from = originAngle - new Vector3(0f, Angle, 0);
+        to = originAngle + new Vector3(0f, Angle, 0);
 
     }
 

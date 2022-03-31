@@ -1075,11 +1075,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9002328646970235537}
+  - component: {fileID: 9002328646970235540}
   - component: {fileID: 9002328646970235538}
   - component: {fileID: 9002328646970235539}
   - component: {fileID: 9002328646970235536}
   - component: {fileID: 9002328646970235541}
-  - component: {fileID: 9002328646970235540}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1106,6 +1106,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9002328646970235540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002328646970235566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf1db67fb5864ebeb2100945f33abe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 8386815655642412477, guid: a9b79e44722e9bc4fb97c596bb5bd4d7, type: 3}
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
+  bulletPrefab: {fileID: 6789913658106852972, guid: 8fca8e226b0c548ee8d9a1cfa52fa465, type: 3}
+  spawnPoint: {fileID: 9002328646940335927}
+  gun: {fileID: 9002328646599389223}
+  shoot_cooldown: 1
+  speed_multipler: 5
 --- !u!33 &9002328646970235538
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1192,24 +1213,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &9002328646970235540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9002328646970235566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf1db67fb5864ebeb2100945f33abe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 8386815655642412477, guid: a9b79e44722e9bc4fb97c596bb5bd4d7, type: 3}
-  bulletPrefab: {fileID: 6789913658106852972, guid: 8fca8e226b0c548ee8d9a1cfa52fa465, type: 3}
-  spawnPoint: {fileID: 9002328646940335927}
-  gun: {fileID: 9002328646599389223}
-  shoot_cooldown: 1
-  speed_multipler: 5
 --- !u!1 &9002328647532074968
 GameObject:
   m_ObjectHideFlags: 0
