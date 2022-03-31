@@ -108,8 +108,6 @@ GameObject:
   - component: {fileID: 3485576118307804860}
   - component: {fileID: 4358470338169262826}
   - component: {fileID: 7258352776603665657}
-  - component: {fileID: 603722864348129755}
-  - component: {fileID: 6096469695246594941}
   - component: {fileID: 3744061246369221695}
   m_Layer: 0
   m_Name: DetectZone
@@ -902,34 +900,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3850608843684249081}
   m_Mesh: {fileID: 0}
---- !u!64 &603722864348129755
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3850608843684249081}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!136 &6096469695246594941
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3850608843684249081}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 1.7
-  m_Height: 10
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.45, z: 0}
 --- !u!65 &3744061246369221695
 BoxCollider:
   m_ObjectHideFlags: 0

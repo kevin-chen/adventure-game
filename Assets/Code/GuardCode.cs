@@ -47,9 +47,11 @@ public class GuardCode : MonoBehaviour
         if(PublicVars.chase_duration > PublicVars.chase_limit){
             if(_navAgent.velocity == new Vector3(0,0,0)){
                 
-                xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-                zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+                //xMovement = Random.Range(Mathf.Clamp(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), );
+                xMovement = Mathf.Clamp(Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), -moving_xRange *2, moving_xRange*2);
+                //zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
                 // destination
+                zMovement = Mathf.Clamp(Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z), -moving_zRange *2, moving_zRange*2);
                 Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
                 // adjust difference
                 movingDiff = dest - movingCenter;
