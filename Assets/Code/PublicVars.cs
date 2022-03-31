@@ -23,5 +23,13 @@ public static class PublicVars
     public static float chase_duration = chase_limit + 1;
     public static float origin_chaseDuration = 0;
 
+    //============key status=============
+
+    public static bool hasFirstKey = false;
+
+    public static bool hasSecondKey = false;
+
+    public static bool hasThirdKey = false; 
+
 
 }
