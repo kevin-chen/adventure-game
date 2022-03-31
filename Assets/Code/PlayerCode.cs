@@ -183,9 +183,23 @@ public class PlayerCode : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Key"))
+        if (other.CompareTag("FirstKey"))
         {
             PublicVars.keyNum += 1;
+            PublicVars.hasFirstKey = true;
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("SecondKey"))
+        {
+            PublicVars.keyNum += 1;
+            PublicVars.hasSecondKey = true;
+            Destroy(other.gameObject);
+
+        }
+        else if (other.CompareTag("ThirdKey"))
+        {
+            PublicVars.keyNum += 1;
+            PublicVars.hasThirdKey = true;
             Destroy(other.gameObject);
         }
 
