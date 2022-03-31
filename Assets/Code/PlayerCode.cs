@@ -25,16 +25,17 @@ public class PlayerCode : MonoBehaviour
     public int speed_multipler = 2;
 
     //=========detect===========
-    //private Vector3 feetPos;
+
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
-        //feetPos = transform.Find("feet").po;
+
         mainCam = Camera.main;
-        // StartCoroutine(GoRandomPoint());
 
         // shoot_cool
         origin_shootcool = shoot_cooldown;
+        // chase_dur
+        PublicVars.origin_chaseDuration = PublicVars.chase_duration;
 
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
     }
@@ -108,9 +109,11 @@ public class PlayerCode : MonoBehaviour
                 if(Physics.Raycast(detectRay, out hit, 0.1f)){
                     if(hit.collider.CompareTag("DetectZone")){
                         print("detected");
-                        PublicVars.isDetected = true;
-                        StartCoroutine(waitToUndetect());
+                        PublicVars.chase_duration = PublicVars.origin_chaseDuration;
                     }
+                }
+                else if(PublicVars.chase_duration >= 0){
+                    PublicVars.chase_duration -= Time.deltaTime;
                 }
             }
 

@@ -33,7 +33,7 @@ public class Detect : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 RaycastHit hit;
                 Ray detectRay = new Ray(transform.position, transform.forward * 10);
-                if(Physics.Raycast(transform.position, transform.forward, out hit, 10, player)){
+                if(Physics.Raycast(transform.position, transform.forward, out hit, 20, player)){
                     print("detected");
                     continue;
                 }

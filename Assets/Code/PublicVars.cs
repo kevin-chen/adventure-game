@@ -19,5 +19,8 @@ public static class PublicVars
     //============security==============
     public static bool isDetected = false;
 
+    public static float chase_duration = 7;
+    public static float origin_chaseDuration;
+
 
 }

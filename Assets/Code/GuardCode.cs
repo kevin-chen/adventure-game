@@ -28,7 +28,7 @@ public class GuardCode : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         movingCenter = transform.position;
-        StartCoroutine(GuardDecisionLogic());
+        //StartCoroutine(GuardDecisionLogic());
     }
 
     private void FixedUpdate() {
@@ -38,6 +38,23 @@ public class GuardCode : MonoBehaviour
         else{
             transform.Find("head").gameObject.SetActive(false);
         }
+
+        if(PublicVars.chase_duration < 0){
+            if(_navAgent.velocity == new Vector3(0,0,0)){
+                xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+                zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+                // destination
+                Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
+                // adjust difference
+                movingDiff = dest - movingCenter;
+                _navAgent.SetDestination(dest);
+            }
+        }
+        else if(PublicVars.chase_duration >= 0){
+            _navAgent.destination = player.transform.position;
+        }
+
+
     }
 
     IEnumerator GuardDecisionLogic() {
