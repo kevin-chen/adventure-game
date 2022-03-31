@@ -106,7 +106,7 @@ public class PlayerCode : MonoBehaviour
                 RaycastHit hit;
                 Ray detectRay = new Ray(transform.Find("feet").position + new Vector3(0, 0.1f, 0), transform.forward);
                 Debug.DrawRay(transform.Find("feet").position, transform.forward);
-                if(Physics.Raycast(detectRay, out hit, 0.1f)){
+                if(Physics.Raycast(detectRay, out hit, 1f)){
                     if(hit.collider.CompareTag("DetectZone")){
                         print("detected");
                         PublicVars.isDetected = true;

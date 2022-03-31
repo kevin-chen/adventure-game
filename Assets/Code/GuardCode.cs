@@ -40,9 +40,7 @@ public class GuardCode : MonoBehaviour
         else{
             transform.Find("head").gameObject.SetActive(false);
         }
-        StartCoroutine(newLogic());
-        print("a");
-
+    
         // switch between randomly move and chasing
         if(PublicVars.chase_duration > PublicVars.chase_limit){
             if(_navAgent.velocity == new Vector3(0,0,0)){
@@ -58,11 +56,10 @@ public class GuardCode : MonoBehaviour
                 _navAgent.SetDestination(dest);
             }
         }
-        else if(PublicVars.chase_duration <= PublicVars.chase_limit){
+        else if(PublicVars.chase_duration <= PublicVars.chase_limit 
+                && Vector3.Distance(transform.position, player.transform.position) <= 15){
             _navAgent.destination = player.transform.position;
         }
-
-
     }
 
 
