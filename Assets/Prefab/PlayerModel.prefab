@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 6110796629933594074}
   m_Layer: 0
   m_Name: PlayerModel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -898,6 +898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8386815655642412477, guid: a9b79e44722e9bc4fb97c596bb5bd4d7, type: 3}
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
   bulletPrefab: {fileID: 6789913658106852972, guid: 8fca8e226b0c548ee8d9a1cfa52fa465, type: 3}
   spawnPoint: {fileID: 6110796630983395875}
   gun: {fileID: 6110796629900416753}
