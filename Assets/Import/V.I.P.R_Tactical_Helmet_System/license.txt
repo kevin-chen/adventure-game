@@ -1,0 +1,11 @@
+Model Information:
+* title:	V.I.P.R Tactical Helmet System
+* source:	https://sketchfab.com/3d-models/vipr-tactical-helmet-system-0dca440a0d8649aabb1de9ca5b5f2d35
+* author:	KallMor (https://sketchfab.com/kallmor)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "V.I.P.R Tactical Helmet System" (https://sketchfab.com/3d-models/vipr-tactical-helmet-system-0dca440a0d8649aabb1de9ca5b5f2d35) by KallMor (https://sketchfab.com/kallmor) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
