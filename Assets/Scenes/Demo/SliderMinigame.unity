@@ -607,6 +607,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 0}
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
   bulletPrefab: {fileID: 6789913658106852972, guid: 8fca8e226b0c548ee8d9a1cfa52fa465, type: 3}
   spawnPoint: {fileID: 412628870}
   gun: {fileID: 1934268566}
