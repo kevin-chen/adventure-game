@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameUI: {fileID: 0}
+  codeUI: {fileID: 0}
 --- !u!114 &3581529148810379295
 MonoBehaviour:
   m_ObjectHideFlags: 0
