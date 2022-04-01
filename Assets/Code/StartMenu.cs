@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
     {
         // PublicVars.ResetLife();
         // PublicVars.Reset();
-        SceneManager.LoadScene("SampleSceneLevel1");
+        SceneManager.LoadScene("jail");
     }
 
     public void Instructions()
