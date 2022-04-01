@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class PlayerCode : MonoBehaviour
@@ -25,11 +24,6 @@ public class PlayerCode : MonoBehaviour
     public float shoot_cooldown = 1;
     private float origin_shootcool;
 
-    TrackStamina tracker;
-    public int maxHealth = 100;
-	//public int currentHealth;
-	//public HealthBar healthBar;
-
 
     //========running==========
     public int speed_multipler;
@@ -44,25 +38,11 @@ public class PlayerCode : MonoBehaviour
         mainCam = Camera.main;
         _animator = GetComponent<Animator>();
 
-        //currentHealth = maxHealth;
-
-        //hSlider.value = 100;
-
-        //PublicVars.health = maxHealth;
-        //PublicVars.stamina = maxStamina;
-        //print(PublicVars.health);
-       // healthBar.SetMaxHealth(maxHealth);
-        //staminaBar.SetMaxStamina(maxStamina);
-
-        //PublicVars.health = maxHealth;
-		//healthBar.SetMaxHealth(maxHealth);
-
-
 
         // shoot_cool
         origin_shootcool = shoot_cooldown;
         // chase_dur
-        PublicVars.origin_chaseDuration = PublicVars.chase_duration;
+        //PublicVars.origin_chaseDuration = PublicVars.chase_duration;
 
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
     }
@@ -104,29 +84,15 @@ public class PlayerCode : MonoBehaviour
                 shoot_cooldown = origin_shootcool;
             }
 
-            if (PublicVars.stamina < 10) {
-                _navAgent.speed = 0;
-            }
-            else {
-                _navAgent.speed = 3;
-            }
 
             // running
             if (Input.GetKeyDown("left shift"))
             {
-                print("speeding up");
                 _navAgent.speed *= speed_multipler;
-                //tracker.DecreaseStamina();
-                //tracker.SetStamina();
-                //staminaBar.SetStamina(PublicVars.stamina);
             }
             if (Input.GetKeyUp("left shift"))
             {
                 _navAgent.speed /= speed_multipler;
-                //recharge stamina
-                //PublicVars.stamina += 20; 
-                tracker.SetStamina();
-                //staminaBar.SetStamina(PublicVars.stamina);
             }
 
             //print("Velocity: " + (_navAgent.velocity != new Vector3(0,0,0)));
@@ -181,23 +147,10 @@ public class PlayerCode : MonoBehaviour
                 }
             }
 
-            //healthBar.SetHealth(PublicVars.health);
 
-            
-            //this if block is just test code -- delete later
-            /*
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                PublicVars.health = 10; //-= 20;
-                //PublicVars.stamina = 20;
-                //tracker.DecreaseStamina();
-                //print(currentHealth);
-                //healthBar.SetHealth(currentHealth);
-                //hSlider.value = currentHealth;
-            } */
 
         }
     }
-
 
     void FixedUpdate()
     {
@@ -238,14 +191,14 @@ public class PlayerCode : MonoBehaviour
             print("this happened");
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("SecondKey"))
+        else if (other.CompareTag("SecondKey"))
         {
             PublicVars.keyNum += 1;
             PublicVars.hasSecondKey = true;
             Destroy(other.gameObject);
 
         }
-        if (other.CompareTag("ThirdKey"))
+        else if (other.CompareTag("ThirdKey"))
         {
             PublicVars.keyNum += 1;
             PublicVars.hasThirdKey = true;
