@@ -191,14 +191,14 @@ public class PlayerCode : MonoBehaviour
             print("this happened");
             Destroy(other.gameObject);
         }
-        else if (other.CompareTag("SecondKey"))
+        if (other.CompareTag("SecondKey"))
         {
             PublicVars.keyNum += 1;
             PublicVars.hasSecondKey = true;
             Destroy(other.gameObject);
 
         }
-        else if (other.CompareTag("ThirdKey"))
+        if (other.CompareTag("ThirdKey"))
         {
             PublicVars.keyNum += 1;
             PublicVars.hasThirdKey = true;

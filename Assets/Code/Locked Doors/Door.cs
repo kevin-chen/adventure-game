@@ -17,10 +17,15 @@ public class Door : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && PublicVars.hasFirstKey == true)
+        if (other.gameObject.CompareTag("Player") && (PublicVars.hasFirstKey == true))
         {
-            //print("Touching Player");
+            print("Touching Player");
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionExit(Collision other) {
+        print("Touching Player exit");
+    }
+
 }
