@@ -26,13 +26,14 @@ public class PlayerCode : MonoBehaviour
 
 
     //========running==========
-    public int speed_multipler = 2;
+    public int speed_multipler;
 
     //=========detect===========
 
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
+        _navAgent.speed *= speed_multipler;
 
         mainCam = Camera.main;
         _animator = GetComponent<Animator>();

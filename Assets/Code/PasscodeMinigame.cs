@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PasscodeMinigame : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class PasscodeMinigame : MonoBehaviour
     int count = 0;
 
     public GameObject miniGameUI;
+    public TextMeshProUGUI codeUI;
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +36,32 @@ public class PasscodeMinigame : MonoBehaviour
     }
 
     private void PressingButton(int buttonNum) {
-        if (count < 4) {
+        if (buttonNum == -1) {
+            sum = 0;
+            count = 0;
+        }
+        else if (count < 4) {
             print("Button Pressed: " + buttonNum);
             sum = (sum * 10) + buttonNum;
             count += 1;
             print("Current Sum: " + sum);
         }
 
-        if (answer == sum) {
-            print("HEYY!!");
-            PublicVars.isPasscodeMiniGamePassed = true;
+        if (count >= 4) { // Done Entering Code
+            if (answer == sum) { // Correct Code
+                print("Correct Code!!");
+                PublicVars.isPasscodeMiniGamePassed = true;
+                StartCoroutine(FlashIsCorrectIndicator(true));
+            } else { // Wrong Code
+                print("Wrong Code!!");
+                PublicVars.isPasscodeMiniGamePassed = false;
+                StartCoroutine(FlashIsCorrectIndicator(false));
+            }
             StartCoroutine(FinishMinigame());
-        }
+        } 
+
+        if (sum != 0) codeUI.text = "" + sum;
+        else codeUI.text = "";
     }
 
     // Update is called once per frame
@@ -58,6 +75,16 @@ public class PasscodeMinigame : MonoBehaviour
         {
 
         }
+    }
+
+    IEnumerator FlashIsCorrectIndicator(bool isCorrect) {
+        if (!isCorrect) {
+            codeUI.color = Color.red;
+        } else {
+            codeUI.color = Color.green;
+        }
+        yield return new WaitForSecondsRealtime(1);
+        // codeUI.color = Color.white;
     }
 
     IEnumerator FinishMinigame()

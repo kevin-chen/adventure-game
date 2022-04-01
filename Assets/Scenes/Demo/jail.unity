@@ -12280,6 +12280,10 @@ PrefabInstance:
       value: PasscodeMiniGameButton
       objectReference: {fileID: 0}
     - target: {fileID: 3581529148810379292, guid: 875e85c0a05054ef8a167a84b207f0be, type: 3}
+      propertyPath: codeUI
+      value: 
+      objectReference: {fileID: 1788247334}
+    - target: {fileID: 3581529148810379292, guid: 875e85c0a05054ef8a167a84b207f0be, type: 3}
       propertyPath: miniGameUI
       value: 
       objectReference: {fileID: 1788247333}
@@ -19205,6 +19209,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 60074659125751383, guid: b4cd1a99d3ae54ba48da67689ec5e203, type: 3}
   m_PrefabInstance: {fileID: 1788247331}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1788247334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2039080014, guid: b4cd1a99d3ae54ba48da67689ec5e203, type: 3}
+  m_PrefabInstance: {fileID: 1788247331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1789035049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6051021273828232977, guid: 8da0955e81f65b24bb7d8dfcf2fd7fd2, type: 3}
@@ -22164,7 +22179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110796629933594075, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
       propertyPath: speed_multipler
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6110796629934016568, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
       propertyPath: m_Name

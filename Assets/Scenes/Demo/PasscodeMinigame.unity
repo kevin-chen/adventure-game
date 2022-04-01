@@ -626,19 +626,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 485323062441685267, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166128882962720997, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6386426941874243266, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386426941874243266, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354542280073459255, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354542280073459255, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354542280073459255, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7513641171390402849, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9002328646970235537, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
       propertyPath: m_RootOrder
@@ -687,6 +703,10 @@ PrefabInstance:
     - target: {fileID: 9002328646970235566, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002328646970235566, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffadf8fc77bde264598837b15c369a88, type: 3}
@@ -1002,6 +1022,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5607eeb9935d440390cdd78a1244279, type: 3}
+--- !u!114 &2039080014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2039080014, guid: b4cd1a99d3ae54ba48da67689ec5e203, type: 3}
+  m_PrefabInstance: {fileID: 60074659386626795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &60074659386626795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1215,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PasscodeMiniGameButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3581529148810379292, guid: 875e85c0a05054ef8a167a84b207f0be, type: 3}
+      propertyPath: codeUI
+      value: 
+      objectReference: {fileID: 2039080014}
     - target: {fileID: 3581529148810379292, guid: 875e85c0a05054ef8a167a84b207f0be, type: 3}
       propertyPath: miniGameUI
       value: 
