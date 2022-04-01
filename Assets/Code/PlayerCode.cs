@@ -94,7 +94,7 @@ public class PlayerCode : MonoBehaviour
                 _navAgent.speed /= speed_multipler;
             }
 
-            print("Velocity: " + (_navAgent.velocity != new Vector3(0,0,0)));
+            //print("Velocity: " + (_navAgent.velocity != new Vector3(0,0,0)));
             _animator.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));
 
 
@@ -131,7 +131,7 @@ public class PlayerCode : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("DetectZone"))
                     {
-                        print("detected");
+                        //print("detected");
                         PublicVars.isDetected = true;
                         PublicVars.chase_duration = 0;
                     }
@@ -187,6 +187,7 @@ public class PlayerCode : MonoBehaviour
         {
             PublicVars.keyNum += 1;
             PublicVars.hasFirstKey = true;
+            print("this happened");
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("SecondKey"))
@@ -202,6 +203,12 @@ public class PlayerCode : MonoBehaviour
             PublicVars.hasThirdKey = true;
             Destroy(other.gameObject);
         }
+        
+        // if (other.CompareTag("FirstDoor"))
+        // {
+        //     print("hit door");
+        //     //Destroy(other.gameObject);
+        // }
 
     }
 
@@ -213,6 +220,12 @@ public class PlayerCode : MonoBehaviour
         {
             transform.position = PublicVars.checkPoint;
         }
+
+        // if (other.gameObject.CompareTag("FirstDoor"))
+        // {
+        //     print("hit door2");
+        //     Destroy(other.gameObject);
+        // }
     }
 
 
@@ -234,7 +247,7 @@ public class PlayerCode : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("DetectZone"))
                     {
-                        print("detected");
+                        //print("detected");
                         continue;
                     }
                 }

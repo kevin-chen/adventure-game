@@ -12,6 +12,12 @@ TagManager:
   - Guard
   - Arrow
   - Floor
+  - FirstKey
+  - SecondKey
+  - ThirdKey
+  - FirstDoor
+  - SecondDoor
+  - ThirdDoor
   layers:
   - Default
   - TransparentFX
