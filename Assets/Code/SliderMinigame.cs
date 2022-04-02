@@ -126,7 +126,10 @@ public class SliderMinigame : MonoBehaviour
     void DeactivateSliderMinigame() {
         PublicVars.isMiniGameActivated = false;
         miniGameUI.SetActive(false);
-        Destroy(gameObject);
+        if(PublicVars.isSliderMiniGamePassed)
+        {
+            Destroy(gameObject);
+        }
         // TogglePauseGame();
     }
 

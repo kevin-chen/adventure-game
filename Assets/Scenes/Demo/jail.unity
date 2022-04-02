@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1509,11 +1509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Size.z
-      value: 0.24662922
+      value: 0.48011506
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.x
-      value: -0.06038496
+      value: -0.06038494
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.y
@@ -1521,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.z
-      value: 0.14849308
+      value: 0.031749826
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_IsTrigger
@@ -4374,7 +4374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Size.z
-      value: 0.2571235
+      value: 0.36175463
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.x
@@ -4386,7 +4386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.z
-      value: 0.0775936
+      value: 0.025277957
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_IsTrigger
@@ -11956,7 +11956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Size.z
-      value: 0.32900423
+      value: 0.41958287
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.x
@@ -11968,7 +11968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_Center.z
-      value: 0.16620189
+      value: 0.039631754
       objectReference: {fileID: 0}
     - target: {fileID: 1763920395, guid: 922fd51e49f334ee2a34db8989db9999, type: 3}
       propertyPath: m_IsTrigger

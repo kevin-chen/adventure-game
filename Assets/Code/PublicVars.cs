@@ -16,6 +16,7 @@ public static class PublicVars
     public static bool isSliderMiniGamePassed = false;
     public static bool isPasscodeMiniGamePassed = false;
 
+
     //============security==============
     public static bool isDetected = false;
     public static float chase_limit = 7;

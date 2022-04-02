@@ -82,6 +82,7 @@ public class PasscodeMinigame : MonoBehaviour
             codeUI.color = Color.red;
         } else {
             codeUI.color = Color.green;
+            PublicVars.isPasscodeMiniGamePassed = true;
         }
         yield return new WaitForSecondsRealtime(1);
         // codeUI.color = Color.white;
@@ -103,7 +104,10 @@ public class PasscodeMinigame : MonoBehaviour
     void DeactivateSliderMinigame() {
         PublicVars.isMiniGameActivated = false;
         miniGameUI.SetActive(false);
-        Destroy(gameObject);
+        if (PublicVars.isPasscodeMiniGamePassed)
+        {
+            Destroy(gameObject);
+        }
         // TogglePauseGame();
     }
 
