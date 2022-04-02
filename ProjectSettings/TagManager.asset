@@ -28,8 +28,8 @@ TagManager:
   - Bullet
   - Player
   - Ground
-  - 
-  - 
+  - wall
+  - slidingdoor
   - 
   - 
   - 

@@ -5,9 +5,10 @@ using UnityEngine;
 public class Door1 : MonoBehaviour
 {
     // Start is called before the first frame update
+    Transform myTrans;
     void Start()
     {
-        
+        myTrans = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -20,7 +21,8 @@ public class Door1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && PublicVars.hasSecondKey == true)
         {
             //print("Touching Player");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            myTrans.Translate(500, 0, 0);
         }
     }
 }
