@@ -213,6 +213,7 @@ public class PlayerCode : MonoBehaviour
         if (other.gameObject.CompareTag("Guard"))
         {
             transform.position = PublicVars.checkPoint;
+            _navAgent.SetDestination(PublicVars.checkPoint);
         }
 
         // if (other.gameObject.CompareTag("FirstDoor"))
