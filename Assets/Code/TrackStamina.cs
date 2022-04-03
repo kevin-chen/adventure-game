@@ -21,7 +21,6 @@ public class TrackStamina : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         _nmAgent = player.GetComponent<NavMeshAgent>();
         originSpeed = _nmAgent.speed;
-        _nmAgent.speed *= 2;
 		//currentHealth = maxHealth;
         PublicVars.stamina = maxStamina;
 		staminaBar.SetMaxStamina(maxStamina);
@@ -53,7 +52,7 @@ public class TrackStamina : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && _nmAgent.velocity != Vector3.zero)
         {
             print("shift down");
-            _nmAgent.speed *= speed_multipler;
+            _nmAgent.speed = originSpeed * speed_multipler;
         }
         if (Input.GetKey(KeyCode.LeftShift)){
             print("shift hold");
@@ -62,7 +61,7 @@ public class TrackStamina : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift) && _nmAgent.velocity != Vector3.zero)
         {
             print("shift up");
-            _nmAgent.speed /= speed_multipler;
+            _nmAgent.speed = originSpeed;
         }
 
 
