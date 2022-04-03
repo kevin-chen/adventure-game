@@ -26,14 +26,14 @@ public class PlayerCode : MonoBehaviour
 
 
     //========running==========
-    public int speed_multipler;
+    //public int speed_multipler;
 
     //=========detect===========
 
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
-        _navAgent.speed *= speed_multipler;
+        //_navAgent.speed *= speed_multipler;
 
         mainCam = Camera.main;
         _animator = GetComponent<Animator>();
@@ -86,14 +86,7 @@ public class PlayerCode : MonoBehaviour
 
 
             // running
-            if (Input.GetKeyDown("left shift"))
-            {
-                _navAgent.speed *= speed_multipler;
-            }
-            if (Input.GetKeyUp("left shift"))
-            {
-                _navAgent.speed /= speed_multipler;
-            }
+
 
             //print("Velocity: " + (_navAgent.velocity != new Vector3(0,0,0)));
             _animator.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));

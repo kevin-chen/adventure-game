@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class TrackStamina : MonoBehaviour
 {
@@ -9,10 +10,18 @@ public class TrackStamina : MonoBehaviour
 	//public int currentHealth;
 
 	public StaminaBar staminaBar;
+    private GameObject player;
+    private NavMeshAgent _nmAgent;
+    public float originSpeed;
+    public int speed_multipler = 2;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        _nmAgent = player.GetComponent<NavMeshAgent>();
+        originSpeed = _nmAgent.speed;
+        _nmAgent.speed *= 2;
 		//currentHealth = maxHealth;
         PublicVars.stamina = maxStamina;
 		staminaBar.SetMaxStamina(maxStamina);
@@ -22,27 +31,40 @@ public class TrackStamina : MonoBehaviour
         //healthBar.SetHealth(PublicVars.health);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //staminaBar.SetStamina(PublicVars.stamina);
-        SetStamina();
+        //SetStamina();
         //StopAllCoroutines();
         if (PublicVars.stamina >= 100) {
             StopAllCoroutines();
+            _nmAgent.speed = originSpeed;
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {   //(KeyCode.Space)) {
-            DecreaseStamina();
-        }
-        /*
-        if (Input.GetKeyUp(KeyCode.Space)) {
-            IncreaseStamina();
-        } */
-        if (PublicVars.stamina < 10) {
+        else if (PublicVars.stamina < 0) {
+            _nmAgent.speed = 0;
             StartCoroutine(regenerateStamina());
             //IncreaseStamina();
         }
+        else if(PublicVars.stamina < 99){
+            IncreaseStamina();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _nmAgent.velocity != Vector3.zero)
+        {
+            print("shift down");
+            _nmAgent.speed *= speed_multipler;
+        }
+        if (Input.GetKey(KeyCode.LeftShift)){
+            print("shift hold");
+            DecreaseStamina();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && _nmAgent.velocity != Vector3.zero)
+        {
+            print("shift up");
+            _nmAgent.speed /= speed_multipler;
+        }
+
 
     }
 
@@ -51,17 +73,19 @@ public class TrackStamina : MonoBehaviour
     }
 
     public void DecreaseStamina() {
-        PublicVars.stamina -= (500 * Time.deltaTime); //(200 * Time.deltaTime);
+        PublicVars.stamina -= (25 * Time.deltaTime); //(200 * Time.deltaTime);
         staminaBar.SetStamina(PublicVars.stamina);
+        print("b");
     }
 
     public void IncreaseStamina() {
-        PublicVars.stamina += (700 * Time.deltaTime);
+        PublicVars.stamina += (10 * Time.deltaTime);
         staminaBar.SetStamina(PublicVars.stamina);
     }
 
     IEnumerator regenerateStamina() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        print("a");
         PublicVars.stamina += 10;
         staminaBar.SetStamina(PublicVars.stamina);
     }
