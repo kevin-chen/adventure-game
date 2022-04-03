@@ -46,7 +46,7 @@ public class TrackStamina : MonoBehaviour
             StartCoroutine(regenerateStamina());
             //IncreaseStamina();
         }
-        else if(PublicVars.stamina < 99){
+        else if(PublicVars.stamina < 100){
             IncreaseStamina();
         }
 
