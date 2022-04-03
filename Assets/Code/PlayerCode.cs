@@ -109,6 +109,9 @@ public class PlayerCode : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Back"))
                     {
+                        if(hit.collider.transform.Find("back").Find("Key")){
+                            PublicVars.keyNum ++;
+                        }
                         Destroy(hit.collider.transform.parent.gameObject);
                     }
                 }
