@@ -77,16 +77,18 @@ public class PlayerCode : MonoBehaviour
             }
 
             // shooting
-            if (shoot_cooldown >= 0)
-            {
-                shoot_cooldown -= Time.deltaTime;
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                lookMouse();
-                GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
-                newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
-                shoot_cooldown = origin_shootcool;
+            if(PublicVars.shootable){
+                if (shoot_cooldown >= 0)
+                {
+                    shoot_cooldown -= Time.deltaTime;
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    lookMouse();
+                    GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.position, transform.rotation);
+                    newBullet.GetComponent<Rigidbody>().AddForce(gun.forward * bulletForce);
+                    shoot_cooldown = origin_shootcool;
+                }
             }
 
 
@@ -158,7 +160,6 @@ public class PlayerCode : MonoBehaviour
     void FixedUpdate()
     {
         lookMouse();
-
 
     }
 
