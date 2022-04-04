@@ -13,6 +13,15 @@ public float throwForce = 600;
  public GameObject tempParent;
  public bool isHolding = false;
 
+ AudioSource aud;
+ public AudioClip explosion;
+
+// set tempParent to Bomb position under playerModel
+
+void Start() {
+    aud = GetComponent<AudioSource>();
+} 
+
  // Update is called once per frame
  void Update () {
 
@@ -35,6 +44,7 @@ public float throwForce = 600;
     item.GetComponent<Rigidbody> ().AddForce (tempParent.transform.forward * throwForce);
     isHolding = false;
     StopAllCoroutines();
+    aud.PlayOneShot(explosion);
     StartCoroutine(Explode_After_Throw());
    }
   }
@@ -82,6 +92,7 @@ IEnumerator Explode() {
                 Destroy(obj.gameObject);
             }
         }
+        //aud.PlayOneShot(explosion);
         Destroy(item.gameObject);
     }
 

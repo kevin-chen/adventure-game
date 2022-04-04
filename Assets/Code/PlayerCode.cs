@@ -18,11 +18,14 @@ public class PlayerCode : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform spawnPoint;
     public Transform gun;
+    public AudioClip alarm;
 
     Animator _animator;
 
     public float shoot_cooldown = 1;
     private float origin_shootcool;
+
+    AudioSource aud;
 
 
     //========running==========
@@ -38,13 +41,15 @@ public class PlayerCode : MonoBehaviour
         mainCam = Camera.main;
         _animator = GetComponent<Animator>();
 
-
         // shoot_cool
         origin_shootcool = shoot_cooldown;
         // chase_dur
         //PublicVars.origin_chaseDuration = PublicVars.chase_duration;
 
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
+    
+        aud = GetComponent<AudioSource>();
+        aud.clip = alarm;
     }
 
 
@@ -128,7 +133,8 @@ public class PlayerCode : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("DetectZone"))
                     {
-                        //print("detected");
+                        print("detected");
+                        aud.PlayOneShot(alarm);
                         PublicVars.isDetected = true;
                         PublicVars.chase_duration = 0;
                     }
@@ -140,6 +146,7 @@ public class PlayerCode : MonoBehaviour
                 else if (PublicVars.chase_duration > PublicVars.chase_limit)
                 {
                     PublicVars.isDetected = false;
+                    //aud.Stop();
                 }
             }
 
