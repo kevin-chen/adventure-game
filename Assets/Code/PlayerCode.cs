@@ -20,12 +20,13 @@ public class PlayerCode : MonoBehaviour
     public Transform gun;
     public AudioClip alarm;
 
-    Animator _animator;
 
     public float shoot_cooldown = 1;
     private float origin_shootcool;
 
     AudioSource aud;
+    //========animation==========
+    Animator _animator;
 
 
     //========running==========

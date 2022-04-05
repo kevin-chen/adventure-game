@@ -24,13 +24,16 @@ public class GuardCode : MonoBehaviour
 
     //==========detect&arrest==================
     public LayerMask playerMask;
-    public NavMeshAgent _playerAgent;
+    private NavMeshAgent _playerAgent;
+    //==========animator=====================
+    Animator _ani;
 
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         _playerAgent = player.GetComponent<NavMeshAgent>();
+        _ani = GetComponent<Animator>();
         movingCenter = transform.position;
         //StartCoroutine(GuardDecisionLogic());
     }
@@ -66,6 +69,9 @@ public class GuardCode : MonoBehaviour
     }
 
     private void Update() {
+        //animation
+        _ani.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));
+        
         if(true){
             RaycastHit hit;
             Ray detectRay = new Ray(transform.position, transform.forward);
