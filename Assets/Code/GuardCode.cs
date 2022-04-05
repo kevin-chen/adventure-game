@@ -22,12 +22,15 @@ public class GuardCode : MonoBehaviour
 
     public float zMovement;
 
-    //==========detect===================
+    //==========detect&arrest==================
+    public LayerMask playerMask;
+    public NavMeshAgent _playerAgent;
 
     void Start()
     {
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        _playerAgent = player.GetComponent<NavMeshAgent>();
         movingCenter = transform.position;
         //StartCoroutine(GuardDecisionLogic());
     }
@@ -62,7 +65,22 @@ public class GuardCode : MonoBehaviour
         }
     }
 
+    private void Update() {
+        if(true){
+            RaycastHit hit;
+            Ray detectRay = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(transform.position, transform.forward);
+            if (Physics.Raycast(detectRay, out hit, 1f, playerMask))
+            {
+                print("arrested");
+                //aud.PlayOneShot(alarm);
+                hit.collider.transform.position = PublicVars.checkPoint;
+                _playerAgent.SetDestination(PublicVars.checkPoint);
+                
+            }
 
+        }
+    }
 
     IEnumerator GuardDecisionLogic() {
         while (true) {

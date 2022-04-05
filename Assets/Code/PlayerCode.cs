@@ -35,8 +35,9 @@ public class PlayerCode : MonoBehaviour
 
     void Start()
     {
+        PublicVars.checkPoint = transform.position;
         _navAgent = GetComponent<NavMeshAgent>();
-        //_navAgent.speed *= speed_multipler;
+
 
         mainCam = Camera.main;
         _animator = GetComponent<Animator>();
@@ -71,7 +72,7 @@ public class PlayerCode : MonoBehaviour
                     }
                     // create new arrow and navigate
                     Vector3 dest = hit.point;
-                    GameObject newArrow = Instantiate(arrowPrefab, dest, transform.rotation);
+                    GameObject newArrow = Instantiate(arrowPrefab, dest + new Vector3(0, .0001f, 0), transform.rotation);
                     _navAgent.destination = dest;
                 }
             }
@@ -136,7 +137,7 @@ public class PlayerCode : MonoBehaviour
                     if (hit.collider.CompareTag("DetectZone"))
                     {
                         print("detected");
-                        aud.PlayOneShot(alarm);
+                        aud.PlayOneShot(alarm, 0.5f);
                         PublicVars.isDetected = true;
                         PublicVars.chase_duration = 0;
                     }
@@ -217,22 +218,16 @@ public class PlayerCode : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        // be arrested
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     // be arrested
 
-        if (other.gameObject.CompareTag("Guard"))
-        {
-            transform.position = PublicVars.checkPoint;
-            _navAgent.SetDestination(PublicVars.checkPoint);
-        }
-
-        // if (other.gameObject.CompareTag("FirstDoor"))
-        // {
-        //     print("hit door2");
-        //     Destroy(other.gameObject);
-        // }
-    }
+    //     if (other.gameObject.CompareTag("Guard"))
+    //     {
+    //         transform.position = PublicVars.checkPoint;
+    //         _navAgent.SetDestination(PublicVars.checkPoint);
+    //     }
+    // } SEE CODE IN GUARDCODE.C
 
 
     IEnumerator waitToUndetect()

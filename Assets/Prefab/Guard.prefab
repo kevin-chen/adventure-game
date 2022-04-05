@@ -189,6 +189,9 @@ MonoBehaviour:
   moving_zRange: 2
   xMovement: 0
   zMovement: 0
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!33 &368329685996033825
 MeshFilter:
   m_ObjectHideFlags: 0

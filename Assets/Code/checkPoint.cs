@@ -9,15 +9,12 @@ public class checkPoint : MonoBehaviour
 
     private void Start() {
         local_pos = transform.position;
-        // particle = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-        // particle.Stop();
     }
 
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
             PublicVars.checkPoint = local_pos;
-            // particle.Play();
         }
     }
 }
