@@ -7,7 +7,7 @@ using TMPro;
 public class PasscodeMinigame : MonoBehaviour
 {
 
-    int answer = 4444;
+    public int answer = 4301;
     int sum = 0;
     int count = 0;
 
