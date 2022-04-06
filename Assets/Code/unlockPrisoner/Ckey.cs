@@ -7,8 +7,7 @@ public class Ckey : MonoBehaviour
     public string code;
     void Start()
     {
-        transform.name = code;
-        print(transform.name);
+        code = transform.name;
     }
 
     // Update is called once per frame

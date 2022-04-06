@@ -81,7 +81,14 @@ public class RandomGenerator : MonoBehaviour
                     setSpecial("club", iconPos, doorPos, check);
                     check++;
                 }
+                else{
+                    GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
+                    newDoor.name = "useless";
+                    continue;
+                }
             }
+            GameObject newDoor2 = Instantiate(door, doorPos, transform.rotation);
+            newDoor2.name = "useless";
         }
     }
 
@@ -89,7 +96,8 @@ public class RandomGenerator : MonoBehaviour
         Instantiate(randomIcon.transform.Find(symbol), iconPos, randomIcon.transform.Find(symbol).rotation);
         GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
         newDoor.name = symbol;
-        Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+        GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+        newKey.name = symbol;
         print(symbol);
     }
     // Update is called once per frame

@@ -9,7 +9,7 @@ public class Cdoor : MonoBehaviour
 
     // Update is called once per frame
     private void Start() {
-        transform.name = code;
+        code = transform.name;
     }
 
     private void OnCollisionEnter(Collision other) {
