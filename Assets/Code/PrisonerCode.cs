@@ -32,7 +32,7 @@ public class PrisonerCode : MonoBehaviour
     //==========animator=====================
     Animator _ani;
     //============release====================
-    public static bool isFree = false;
+    private bool isFree = false;
     public static string pName;
 
     void Start()
@@ -74,6 +74,9 @@ public class PrisonerCode : MonoBehaviour
 
             Vector3 difference = player.transform.position - transform.position;
             _navAgent.SetDestination(player.transform.position - difference/1.1f);
+        }
+        else if(isFree && (Vector3.Distance(player.transform.position, transform.position) < 3f ) ){
+            _navAgent.SetDestination(transform.position);
         }
 
 
