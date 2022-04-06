@@ -48,20 +48,39 @@ public class RandomGenerator : MonoBehaviour
         }
         
         //instantiate prisioner
+        int check = 0;
         for(int i = 0; i < 8 ; i++){
             int a = Random.Range(0, 3);
             //GameObject newPrisoner;
             //GameObject icon;
+            Vector3 singlePos = priPos.Find("pri" + i).transform.position;
+            Vector3 iconPos = singlePos + new Vector3(0, .001f, 0);
             switch(a){
                 case 0:
-                    Instantiate(prisoner1, priPos.Find("pri" + i).transform.position, transform.rotation);
+                    Instantiate(prisoner1, singlePos, transform.rotation);
                     break;
                 case 1:
-                    Instantiate(prisoner2, priPos.Find("pri" + i).transform.position, transform.rotation);
+                    Instantiate(prisoner2, singlePos, transform.rotation);
                     break;
                 case 2:
-                    Instantiate(prisoner3, priPos.Find("pri" + i).transform.position, transform.rotation);
+                    Instantiate(prisoner3, singlePos, transform.rotation);
                     break;
+            }
+            if(check != 3){
+                if (i == PublicVars.prisoners[0]){
+                    Instantiate(randomIcon.transform.Find("diamond"), iconPos, randomIcon.transform.Find("diamond").rotation);
+                    print("diamond");
+                    check++;
+                } else if (i == PublicVars.prisoners[1]){
+                    Instantiate(randomIcon.transform.Find("heart"), iconPos, randomIcon.transform.Find("diamond").rotation);
+                    print("heart");
+                    check++;
+                } else if (i == PublicVars.prisoners[2]){
+                    Instantiate(randomIcon.transform.Find("club"), iconPos, randomIcon.transform.Find("diamond").rotation);
+                    print("club");
+                    check++;
+                }
+
             }
 
         }
