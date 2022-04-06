@@ -25,6 +25,9 @@ public class GuardCode : MonoBehaviour
     //==========detect&arrest==================
     public LayerMask playerMask;
     private NavMeshAgent _playerAgent;
+
+    private float originSpd;
+    private float newSpd;
     //==========animator=====================
     Animator _ani;
 
@@ -35,6 +38,8 @@ public class GuardCode : MonoBehaviour
         _playerAgent = player.GetComponent<NavMeshAgent>();
         _ani = GetComponent<Animator>();
         movingCenter = transform.position;
+        originSpd = _navAgent.speed;
+        newSpd = originSpd * 1.5f;
         //StartCoroutine(GuardDecisionLogic());
     }
 
@@ -50,7 +55,8 @@ public class GuardCode : MonoBehaviour
         // switch between randomly move and chasing
         if(PublicVars.chase_duration > PublicVars.chase_limit){
             if(_navAgent.velocity == new Vector3(0,0,0)){
-                
+                //reset speed
+                _navAgent.speed = originSpd;
                 //xMovement = Random.Range(Mathf.Clamp(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), );
                 xMovement = Mathf.Clamp(Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), -moving_xRange *2, moving_xRange*2);
                 //zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
@@ -64,6 +70,7 @@ public class GuardCode : MonoBehaviour
         }
         else if(PublicVars.chase_duration <= PublicVars.chase_limit 
                 && Vector3.Distance(transform.position, player.transform.position) <= 15){
+            _navAgent.speed = newSpd;
             _navAgent.destination = player.transform.position;
         }
     }
@@ -71,7 +78,8 @@ public class GuardCode : MonoBehaviour
     private void Update() {
         //animation
         _ani.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));
-        
+
+        //collide and arrest
         if(true){
             RaycastHit hit;
             Ray detectRay = new Ray(transform.position, transform.forward);
