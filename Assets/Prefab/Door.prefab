@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4261275575513826071}
   - component: {fileID: 8043017582790369364}
   - component: {fileID: 2002984433832360879}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 9194562742226034166}
   - component: {fileID: 7733295352717958509}
   - component: {fileID: 4320371680677569154}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2320832932760126573}
   - component: {fileID: 6732882688416698230}
   - component: {fileID: 8629221037622187305}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 1459814966981321992}
   - component: {fileID: 7832960368566407334}
   - component: {fileID: 5924109564340671785}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 8598609900762695736}
   - component: {fileID: 4513485607761909491}
   - component: {fileID: 8740844998969991406}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,8 +501,7 @@ GameObject:
   - component: {fileID: 5290494333151502638}
   - component: {fileID: 7444293915886280632}
   - component: {fileID: 7407269536091524243}
-  - component: {fileID: 2634320618360000749}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,21 +552,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 2, z: 1}
+  m_Size: {x: 1.8, y: 2, z: 1.5}
   m_Center: {x: 0, y: 1, z: -0.5}
---- !u!208 &2634320618360000749
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6781306263510322652}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.4, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1, z: -0.5}
-  m_TimeToStationary: 0.5

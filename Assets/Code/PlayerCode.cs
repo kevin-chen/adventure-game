@@ -112,15 +112,16 @@ public class PlayerCode : MonoBehaviour
 
 
             // assassinate
-            //if (Input.GetKeyDown("e"))
-            if(true)
-            {
-                RaycastHit hit;
-                Ray ray = new Ray(transform.position - new Vector3(0, .2f, 0), transform.forward);
-                if (Physics.Raycast(ray, out hit, 1.1f, back))
+            if (Input.GetKeyDown("e")){
+                if(true)
                 {
-                    print("findback");
-                    Destroy(hit.collider.transform.parent.gameObject);
+                    RaycastHit hit;
+                    Ray ray = new Ray(transform.position - new Vector3(0, .2f, 0), transform.forward);
+                    if (Physics.Raycast(ray, out hit, 1.1f, back))
+                    {
+                        print("findback");
+                        Destroy(hit.collider.transform.parent.gameObject);
+                    }
                 }
             }
 

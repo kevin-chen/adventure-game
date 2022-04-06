@@ -8,15 +8,22 @@ public class Cdoor : MonoBehaviour
 
 
     // Update is called once per frame
-    private void Start() {
+    private void FixedUpdate() {
         code = transform.name;
     }
+    void OnCollisionEnter(Collision other)
+    {
+        print(code);
+        if (other.gameObject.CompareTag("Player") && other.gameObject.transform.Find("hand").Find(code)) {
+            Destroy(other.gameObject.transform.Find("hand").Find(code).gameObject);
+            Destroy(gameObject);
+        }
+    }
 
-    private void OnCollisionEnter(Collision other) {
-        if(other.collider.transform.Find("hand")){
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Player")){
             print("a");
-            Destroy(transform.gameObject);
-            Destroy(other.collider.transform.Find("hand").Find(code));
         }
     }
 }
