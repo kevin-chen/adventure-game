@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 122466041}
   - component: {fileID: 122466040}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $600
+  m_text: ' $600'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1585,7 +1585,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1135785523}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &147603720 stripped
 Transform:
@@ -10914,8 +10914,12 @@ PrefabInstance:
       objectReference: {fileID: 1437709503}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1882
+      value: 1897
       objectReference: {fileID: 0}
+    - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 122466040}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: moving_xRange
       value: 1
@@ -21636,8 +21640,12 @@ PrefabInstance:
       objectReference: {fileID: 1390908170}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1885
+      value: 1900
       objectReference: {fileID: 0}
+    - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 122466040}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: moving_xRange
       value: 3
@@ -24201,7 +24209,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -25147,8 +25155,12 @@ PrefabInstance:
       objectReference: {fileID: 290164256}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1879
+      value: 1894
       objectReference: {fileID: 0}
+    - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 122466040}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: moving_xRange
       value: 1
@@ -29475,8 +29487,24 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6110796629900416753, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110796629933592864, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110796629933593304, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6110796629933593304, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110796629933593306, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6110796629933594072, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
@@ -29558,6 +29586,18 @@ PrefabInstance:
     - target: {fileID: 6110796629934016568, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110796630277489142, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110796630932649356, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881670097735967257, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
@@ -29925,8 +29965,12 @@ PrefabInstance:
       objectReference: {fileID: 1792551214}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1885
+      value: 1900
       objectReference: {fileID: 0}
+    - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 122466040}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: moving_xRange
       value: 1
@@ -31410,16 +31454,12 @@ PrefabInstance:
       objectReference: {fileID: 368645237}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1876
+      value: 1891
       objectReference: {fileID: 0}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
-      propertyPath: moving_xRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
-      propertyPath: moving_zRange
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 122466040}
     - target: {fileID: 3388278861431628713, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_Name
       value: RealGuard
@@ -42804,7 +42844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986956194841381832, guid: b6c62c24345c04841a144e2a42d98eee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 7986956194841381832, guid: b6c62c24345c04841a144e2a42d98eee, type: 3}
       propertyPath: m_LocalPosition.z

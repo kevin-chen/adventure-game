@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
+using TMPro;
 public class GuardCode : MonoBehaviour
 {
+    //============UI==========
+    public TextMeshProUGUI money;
+
+    
+    //=======
     NavMeshAgent _navAgent;
     GameObject player;
 
@@ -17,9 +23,7 @@ public class GuardCode : MonoBehaviour
     public float moving_Cooldown = 5.5f;
     public float moving_xRange = 3;
     public float moving_zRange = 3;
-
     public float xMovement;
-
     public float zMovement;
 
     //==========detect&arrest==================
@@ -54,13 +58,11 @@ public class GuardCode : MonoBehaviour
     
         // switch between randomly move and chasing
         if(PublicVars.chase_duration > PublicVars.chase_limit){
-            if(_navAgent.velocity == new Vector3(0,0,0)){
+            if(_navAgent.velocity == Vector3.zero){
                 //reset speed
                 _navAgent.speed = originSpd;
-                //xMovement = Random.Range(Mathf.Clamp(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), );
-                xMovement = Mathf.Clamp(Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), -moving_xRange *2, moving_xRange*2);
-                //zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
                 // destination
+                xMovement = Mathf.Clamp(Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x), -moving_xRange *2, moving_xRange*2);
                 zMovement = Mathf.Clamp(Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z), -moving_zRange *2, moving_zRange*2);
                 Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
                 // adjust difference
@@ -77,7 +79,7 @@ public class GuardCode : MonoBehaviour
 
     private void Update() {
         //animation
-        _ani.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));
+        _ani.SetBool("IsMoving", _navAgent.velocity != Vector3.zero);
 
         //collide and arrest
         if(true){
@@ -90,58 +92,59 @@ public class GuardCode : MonoBehaviour
                 //aud.PlayOneShot(alarm);
                 hit.collider.transform.position = PublicVars.checkPoint;
                 _playerAgent.SetDestination(PublicVars.checkPoint);
+                money.text = " $" + PublicVars.health;
                 
             }
 
         }
     }
 
-    IEnumerator GuardDecisionLogic() {
-        while (true) {
-            bool isPlayerDetected = PublicVars.isDetected;
-            if (isPlayerDetected) {
-                yield return new WaitForSeconds(0.1f);
-                _navAgent.destination = player.transform.position;
-            } else {
-                yield return new WaitForSeconds(0.4f);
-                if(PublicVars.isDetected) continue;
-                yield return new WaitForSeconds(moving_Cooldown - 0.4f);
+    // IEnumerator GuardDecisionLogic() {
+    //     while (true) {
+    //         bool isPlayerDetected = PublicVars.isDetected;
+    //         if (isPlayerDetected) {
+    //             yield return new WaitForSeconds(0.1f);
+    //             _navAgent.destination = player.transform.position;
+    //         } else {
+    //             yield return new WaitForSeconds(0.4f);
+    //             if(PublicVars.isDetected) continue;
+    //             yield return new WaitForSeconds(moving_Cooldown - 0.4f);
 
                 
-                xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-                zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
-                // destination
-                Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
-                // adjust difference
-                movingDiff = dest - movingCenter;
-                _navAgent.SetDestination(dest);
-            }
-        }
-    }
+    //             xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+    //             zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+    //             // destination
+    //             Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
+    //             // adjust difference
+    //             movingDiff = dest - movingCenter;
+    //             _navAgent.SetDestination(dest);
+    //         }
+    //     }
+    // }
 
 
-    IEnumerator newLogic(){
-        while(_navAgent.velocity == new Vector3(0,0,0)){
-            if(PublicVars.isDetected){
-                yield return new WaitForSeconds(0.5f);
-                _navAgent.destination = player.transform.position;
-            } else{
-                yield return new WaitForSeconds(0.5f);
-                if(PublicVars.isDetected) continue;
-                yield return new WaitForSeconds(moving_Cooldown - 0.5f);
+    // IEnumerator newLogic(){
+    //     while(_navAgent.velocity == new Vector3(0,0,0)){
+    //         if(PublicVars.isDetected){
+    //             yield return new WaitForSeconds(0.5f);
+    //             _navAgent.destination = player.transform.position;
+    //         } else{
+    //             yield return new WaitForSeconds(0.5f);
+    //             if(PublicVars.isDetected) continue;
+    //             yield return new WaitForSeconds(moving_Cooldown - 0.5f);
 
-                xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-                zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
-                // destination
-                Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
-                // adjust difference
-                movingDiff = dest - movingCenter;
-                _navAgent.SetDestination(dest);
-            }
+    //             xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
+    //             zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
+    //             // destination
+    //             Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
+    //             // adjust difference
+    //             movingDiff = dest - movingCenter;
+    //             _navAgent.SetDestination(dest);
+    //         }
 
-        }
-    }
-  
+    //     }
+    // }
+
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet")) {
