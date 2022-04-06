@@ -72,40 +72,32 @@ public class RandomGenerator : MonoBehaviour
             }
             if(check != 3){
                 if (i == PublicVars.prisoners[0]){
-                    //setSpecial("diamond", iconPos, doorPos, check);
-                    kdPos.Find("d" + i).name = "diamond";
-                    GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
-                    newKey.name = "diamond";
+                    setSpecial("diamond", i, iconPos, doorPos, check);
                     check++;
                 } else if (i == PublicVars.prisoners[1]){
-                    //setSpecial("heart", iconPos, doorPos, check);
-                    kdPos.Find("d" + i).name = "heart";
-                    GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
-                    newKey.name = "heart";
+                    setSpecial("heart", i, iconPos, doorPos, check);
                     check++;
                 } else if (i == PublicVars.prisoners[2]){
-                    //setSpecial("club", iconPos, doorPos, check);
-                    kdPos.Find("d" + i).name = "club";
-                    GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
-                    newKey.name = "club";
+                    setSpecial("club", i, iconPos, doorPos, check);
                     check++;
                 }
-                else{
-                    //GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
-                    //newDoor.name = "useless";
-                    continue;
-                }
             }
-            //GameObject newDoor2 = Instantiate(door, doorPos, transform.rotation);
-            //newDoor2.name = "useless";
         }
     }
 
-    void setSpecial(string symbol, Vector3 iconPos, Vector3 doorPos, int check){
-        Instantiate(randomIcon.transform.Find(symbol), iconPos, randomIcon.transform.Find(symbol).rotation);
-        GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
-        newDoor.name = symbol;
-        GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+    //set key and door for special three
+    void setSpecial(string symbol, int i, Vector3 iconPos, Vector3 doorPos, int check){
+        Transform symbolObj = randomIcon.transform.Find(symbol);
+        Vector3 keyPos = kdPos.Find("k" + check).transform.position;
+        // set door name/code
+        kdPos.Find("d" + i).name = symbol;
+        // set door symbol sprite
+        Instantiate(symbolObj, iconPos, symbolObj.rotation);
+        // set key
+        GameObject newKey = Instantiate(key, keyPos, transform.rotation);
+        // set key symbol sprite
+        Instantiate(symbolObj, keyPos + new Vector3(0, .001f, 0), symbolObj.rotation);
+        // set key name/code
         newKey.name = symbol;
         print(symbol);
     }

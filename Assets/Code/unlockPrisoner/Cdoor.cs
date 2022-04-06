@@ -16,7 +16,8 @@ public class Cdoor : MonoBehaviour
         print(code);
         if (other.gameObject.CompareTag("Player") && other.gameObject.transform.Find("hand").Find(code)) {
             Destroy(other.gameObject.transform.Find("hand").Find(code).gameObject);
-            Destroy(gameObject);
+            transform.Translate(500, 0, 0);
+            //Destroy(gameObject);
         }
     }
 

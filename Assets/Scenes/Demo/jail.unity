@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.6
+    agentClimb: 0.5
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -724,7 +724,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &53269785
 Transform:
@@ -750,7 +750,7 @@ Transform:
   - {fileID: 893892674}
   - {fileID: 1090830838}
   m_Father: {fileID: 1712088698}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76906234
 GameObject:
@@ -3659,7 +3659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3721,7 +3721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5980,7 +5980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10755,7 +10755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11935,7 +11935,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &893892674
 Transform:
@@ -12150,7 +12150,7 @@ PrefabInstance:
       objectReference: {fileID: 1437709503}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1897
+      value: 1906
       objectReference: {fileID: 0}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: money
@@ -15060,7 +15060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15136,7 +15136,7 @@ Transform:
   - {fileID: 1477086879}
   - {fileID: 416429763}
   m_Father: {fileID: 1712088698}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1090830837
 GameObject:
@@ -15152,7 +15152,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1090830838
 Transform:
@@ -15201,7 +15201,7 @@ Transform:
   - {fileID: 364770794}
   - {fileID: 492824075}
   m_Father: {fileID: 1712088698}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1095387186
 GameObject:
@@ -16530,7 +16530,7 @@ Transform:
   - {fileID: 478840662}
   - {fileID: 410226971}
   m_Father: {fileID: 1712088698}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176299826
 GameObject:
@@ -22949,7 +22949,7 @@ PrefabInstance:
       objectReference: {fileID: 1390908170}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1900
+      value: 1909
       objectReference: {fileID: 0}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: money
@@ -23103,7 +23103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49999988
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23165,7 +23165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23224,7 +23224,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1356632625
 Transform:
@@ -26648,7 +26648,7 @@ PrefabInstance:
       objectReference: {fileID: 290164256}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1894
+      value: 1903
       objectReference: {fileID: 0}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: money
@@ -27767,12 +27767,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 991754461}
-  - {fileID: 53269785}
   - {fileID: 1716334648}
   - {fileID: 1094019495}
   - {fileID: 1169271853}
   - {fileID: 1774177924}
   - {fileID: 1081135832}
+  - {fileID: 53269785}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27883,7 +27883,7 @@ Transform:
   - {fileID: 1288827534}
   - {fileID: 343619154}
   m_Father: {fileID: 1712088698}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1722358006 stripped
 Transform:
@@ -28946,7 +28946,7 @@ Transform:
   - {fileID: 1514456754}
   - {fileID: 406643128}
   m_Father: {fileID: 1712088698}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776234567
 GameObject:
@@ -31670,7 +31670,7 @@ PrefabInstance:
       objectReference: {fileID: 1792551214}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1900
+      value: 1909
       objectReference: {fileID: 0}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: money
@@ -32086,7 +32086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5290494333151502638, guid: ac7cd0bfc75f0497fb40ff1f48e1c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33494,7 +33494,7 @@ PrefabInstance:
       objectReference: {fileID: 368645237}
     - target: {fileID: 2672729768652969657, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: m_VersionIndex
-      value: 1891
+      value: 1900
       objectReference: {fileID: 0}
     - target: {fileID: 3388278861422236156, guid: 049bc0730892e58488c137b49e705386, type: 3}
       propertyPath: money
