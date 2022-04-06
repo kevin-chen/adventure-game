@@ -33,6 +33,8 @@ public class PlayerCode : MonoBehaviour
     //public int speed_multipler;
 
     //=========detect===========
+    //=========assassinate=======
+    public LayerMask back;
 
     void Start()
     {
@@ -110,19 +112,15 @@ public class PlayerCode : MonoBehaviour
 
 
             // assassinate
-            if (Input.GetKeyDown("e"))
+            //if (Input.GetKeyDown("e"))
+            if(true)
             {
                 RaycastHit hit;
-                Ray ray = new Ray(transform.position, transform.forward);
-                if (Physics.Raycast(ray, out hit))
+                Ray ray = new Ray(transform.position - new Vector3(0, .2f, 0), transform.forward);
+                if (Physics.Raycast(ray, out hit, 1.1f, back))
                 {
-                    if (hit.collider.CompareTag("Back"))
-                    {
-                        if(hit.collider.transform.Find("back").Find("Key")){
-                            PublicVars.keyNum ++;
-                        }
-                        Destroy(hit.collider.transform.parent.gameObject);
-                    }
+                    print("findback");
+                    Destroy(hit.collider.transform.parent.gameObject);
                 }
             }
 
@@ -138,7 +136,7 @@ public class PlayerCode : MonoBehaviour
                     if (hit.collider.CompareTag("DetectZone"))
                     {
                         print("detected");
-                        aud.PlayOneShot(alarm, 0.5f);
+                        aud.PlayOneShot(alarm, 0.3f);
                         PublicVars.isDetected = true;
                         PublicVars.chase_duration = 0;
                     }

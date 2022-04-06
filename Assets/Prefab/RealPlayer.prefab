@@ -900,12 +900,15 @@ MonoBehaviour:
   arrowPrefab: {fileID: 8386815655642412477, guid: a9b79e44722e9bc4fb97c596bb5bd4d7, type: 3}
   ground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   bulletPrefab: {fileID: 6789913658106852972, guid: 8fca8e226b0c548ee8d9a1cfa52fa465, type: 3}
   spawnPoint: {fileID: 6110796630983395875}
   gun: {fileID: 6110796629900416753}
   alarm: {fileID: 0}
   shoot_cooldown: 1
+  back:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!195 &6110796629933594074
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2513,7 +2516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6110796630277489142
 Transform:
   m_ObjectHideFlags: 0

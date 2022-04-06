@@ -16,6 +16,7 @@ public static class PublicVars
     public static bool isMiniGameActivated = false;
     public static bool isSliderMiniGamePassed = false;
     public static bool isPasscodeMiniGamePassed = false;
+    public static int[] passcode = new int[4]; 
 
 
     //============security==============
@@ -32,6 +33,8 @@ public static class PublicVars
     public static bool hasSecondKey = false;
 
     public static bool hasThirdKey = false; 
+    //============area 1==================
+    public static int[] prisoners = {-1, -1,- 1};
 
     
 
