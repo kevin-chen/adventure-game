@@ -13,6 +13,7 @@ public class RandomGenerator : MonoBehaviour
     public GameObject door;
     public GameObject key;
 
+
     //==========location=========
     public Vector3 code1;
     public Vector3 code2;
@@ -34,7 +35,7 @@ public class RandomGenerator : MonoBehaviour
     {
         //minigame passcode
         for(int i = 0; i < 4; i++){
-            PublicVars.passcode[i] = Random.Range(0, 10);
+            PublicVars.passcode[i] = Random.Range(0, 4);
             print(PublicVars.passcode[i]);
         }
 
