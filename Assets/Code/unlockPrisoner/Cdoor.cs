@@ -13,7 +13,8 @@ public class Cdoor : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(other.collider.transform.Find("hand").Find(code)){
+        if(other.collider.transform.Find("hand")){
+            print("a");
             Destroy(transform.gameObject);
             Destroy(other.collider.transform.Find("hand").Find(code));
         }

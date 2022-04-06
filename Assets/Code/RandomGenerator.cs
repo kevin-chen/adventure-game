@@ -72,23 +72,32 @@ public class RandomGenerator : MonoBehaviour
             }
             if(check != 3){
                 if (i == PublicVars.prisoners[0]){
-                    setSpecial("diamond", iconPos, doorPos, check);
+                    //setSpecial("diamond", iconPos, doorPos, check);
+                    kdPos.Find("d" + i).name = "diamond";
+                    GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+                    newKey.name = "diamond";
                     check++;
                 } else if (i == PublicVars.prisoners[1]){
-                    setSpecial("heart", iconPos, doorPos, check);
+                    //setSpecial("heart", iconPos, doorPos, check);
+                    kdPos.Find("d" + i).name = "heart";
+                    GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+                    newKey.name = "heart";
                     check++;
                 } else if (i == PublicVars.prisoners[2]){
-                    setSpecial("club", iconPos, doorPos, check);
+                    //setSpecial("club", iconPos, doorPos, check);
+                    kdPos.Find("d" + i).name = "club";
+                    GameObject newKey = Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+                    newKey.name = "club";
                     check++;
                 }
                 else{
-                    GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
-                    newDoor.name = "useless";
+                    //GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
+                    //newDoor.name = "useless";
                     continue;
                 }
             }
-            GameObject newDoor2 = Instantiate(door, doorPos, transform.rotation);
-            newDoor2.name = "useless";
+            //GameObject newDoor2 = Instantiate(door, doorPos, transform.rotation);
+            //newDoor2.name = "useless";
         }
     }
 
