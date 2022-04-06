@@ -10,6 +10,8 @@ public class RandomGenerator : MonoBehaviour
     public GameObject prisoner1;
     public GameObject prisoner2;
     public GameObject prisoner3;
+    public GameObject door;
+    public GameObject key;
 
     //==========location=========
     public Vector3 code1;
@@ -18,6 +20,7 @@ public class RandomGenerator : MonoBehaviour
     public Vector3 code4;
 
     public Transform priPos;
+    public Transform kdPos;
     
     bool FindNum(int[] arr, int target){
         foreach(int i in arr){
@@ -55,6 +58,7 @@ public class RandomGenerator : MonoBehaviour
             //GameObject icon;
             Vector3 singlePos = priPos.Find("pri" + i).transform.position;
             Vector3 iconPos = singlePos + new Vector3(0, .001f, 0);
+            Vector3 doorPos = kdPos.Find("d" + i).transform.position;
             switch(a){
                 case 0:
                     Instantiate(prisoner1, singlePos, transform.rotation);
@@ -68,25 +72,26 @@ public class RandomGenerator : MonoBehaviour
             }
             if(check != 3){
                 if (i == PublicVars.prisoners[0]){
-                    Instantiate(randomIcon.transform.Find("diamond"), iconPos, randomIcon.transform.Find("diamond").rotation);
-                    print("diamond");
+                    setSpecial("diamond", iconPos, doorPos, check);
                     check++;
                 } else if (i == PublicVars.prisoners[1]){
-                    Instantiate(randomIcon.transform.Find("heart"), iconPos, randomIcon.transform.Find("diamond").rotation);
-                    print("heart");
+                    setSpecial("heart", iconPos, doorPos, check);
                     check++;
                 } else if (i == PublicVars.prisoners[2]){
-                    Instantiate(randomIcon.transform.Find("club"), iconPos, randomIcon.transform.Find("diamond").rotation);
-                    print("club");
+                    setSpecial("club", iconPos, doorPos, check);
                     check++;
                 }
-
             }
-
         }
-
     }
 
+    void setSpecial(string symbol, Vector3 iconPos, Vector3 doorPos, int check){
+        Instantiate(randomIcon.transform.Find(symbol), iconPos, randomIcon.transform.Find(symbol).rotation);
+        GameObject newDoor = Instantiate(door, doorPos, transform.rotation);
+        newDoor.name = symbol;
+        Instantiate(key, kdPos.Find("k" + check).transform.position, transform.rotation);
+        print(symbol);
+    }
     // Update is called once per frame
     void Update()
     {
