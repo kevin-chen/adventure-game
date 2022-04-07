@@ -10,6 +10,8 @@ public class RandomGenerator : MonoBehaviour
     public GameObject prisoner1;
     public GameObject prisoner2;
     public GameObject prisoner3;
+
+    public GameObject numPrefab;
     public GameObject door;
     public GameObject key;
 
@@ -21,6 +23,8 @@ public class RandomGenerator : MonoBehaviour
     public Vector3 code4;
 
     public Transform priPos;
+
+    public Transform numPos;
     public Transform kdPos;
     
     bool FindNum(int[] arr, int target){
@@ -31,11 +35,11 @@ public class RandomGenerator : MonoBehaviour
         }
         return false;
     }
-    void Start()
+    async void Start()
     {
         //minigame passcode
         for(int i = 0; i < 4; i++){
-            PublicVars.passcode[i] = Random.Range(0, 4);
+            PublicVars.passcode[i] = Random.Range(1, 4);
             print(PublicVars.passcode[i]);
         }
 
@@ -83,6 +87,13 @@ public class RandomGenerator : MonoBehaviour
                     check++;
                 }
             }
+        }
+        // instantiate passcode
+        for (int i = 0; i < 4; i++){
+            int num = PublicVars.passcode[i];
+            print("num " + i + "=" + num);
+            Vector3 singlePos = numPos.Find("" + i).transform.position;
+            Instantiate(numPrefab.transform.Find("" + num), singlePos, transform.rotation);
         }
     }
 

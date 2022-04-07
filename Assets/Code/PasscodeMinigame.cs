@@ -6,8 +6,8 @@ using TMPro;
 
 public class PasscodeMinigame : MonoBehaviour
 {
-
     public int answer = 4301;
+    int num = 1;
     int sum = 0;
     int count = 0;
 
@@ -67,8 +67,19 @@ public class PasscodeMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if((num == 1) && (PublicVars.passcode[0] != 0)){
+            num = PublicVars.passcode[0];
+            for (int i = 1; i < 4; i++){
+                num *= 10;
+                num += PublicVars.passcode[i];
+            }
+            print("updated num = " + num);
+        }
+
+
         if (!PublicVars.isMiniGameActivated)
         {
+            answer = num;
             CheckActivateGame();
         }
         else
