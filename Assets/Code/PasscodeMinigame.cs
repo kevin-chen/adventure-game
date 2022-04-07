@@ -6,6 +6,7 @@ using TMPro;
 
 public class PasscodeMinigame : MonoBehaviour
 {
+    Transform myTrans;
     public int answer;
     int num = 1;
     int sum = 0;
@@ -18,6 +19,7 @@ public class PasscodeMinigame : MonoBehaviour
     void Start()
     {
         PasscodePressButton.ButtonPress += PressingButton;
+        myTrans = GetComponent<Transform>();
 
     }
 
@@ -87,6 +89,9 @@ public class PasscodeMinigame : MonoBehaviour
         {
 
         }
+        if(PublicVars.isPasscodeMiniGamePassed){
+            myTrans.Translate(500, 0, 0);
+        }
     }
 
     IEnumerator FlashIsCorrectIndicator(bool isCorrect) {
@@ -95,6 +100,7 @@ public class PasscodeMinigame : MonoBehaviour
         } else {
             codeUI.color = Color.green;
             PublicVars.isPasscodeMiniGamePassed = true;
+            //myTrans.Translate(500, 0, 0);
         }
         yield return new WaitForSecondsRealtime(1);
         // codeUI.color = Color.white;
@@ -118,7 +124,8 @@ public class PasscodeMinigame : MonoBehaviour
         miniGameUI.SetActive(false);
         if (PublicVars.isPasscodeMiniGamePassed)
         {
-            Destroy(gameObject);
+            myTrans.Translate(500, 0, 0);
+            //Destroy(gameObject);
         }
         // TogglePauseGame();
     }

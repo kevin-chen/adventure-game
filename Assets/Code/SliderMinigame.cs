@@ -9,6 +9,7 @@ public class SliderMinigame : MonoBehaviour
     public Transform gameBar;
     public Transform goalBar;
     Vector2 imageStartPos;
+    Transform myTrans;
 
     Image gameBarImage;
 
@@ -21,6 +22,7 @@ public class SliderMinigame : MonoBehaviour
         imageStartPos = gameBar.position;
         FindInitialGoalPosition();
         gameBarImage = gameBar.GetComponent<Image>();
+        myTrans = GetComponent<Transform>();
     }
 
     void Update()
@@ -35,6 +37,10 @@ public class SliderMinigame : MonoBehaviour
             // print("active");
             OscillateBar();
             CheckStopBar();
+        }
+
+        if (PublicVars.isSliderMiniGamePassed){
+            myTrans.Translate(500, 0, 0);
         }
     }
 
@@ -128,7 +134,8 @@ public class SliderMinigame : MonoBehaviour
         miniGameUI.SetActive(false);
         if(PublicVars.isSliderMiniGamePassed)
         {
-            Destroy(gameObject);
+            myTrans.Translate(500, 0, 0);
+            //Destroy(gameObject);
         }
         // TogglePauseGame();
     }
