@@ -21,6 +21,7 @@ TagManager:
   - Money
   - Prisoner
   - bomb
+  - ThingToDestroy
   layers:
   - Default
   - TransparentFX
