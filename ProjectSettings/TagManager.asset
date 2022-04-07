@@ -18,6 +18,7 @@ TagManager:
   - FirstDoor
   - SecondDoor
   - ThirdDoor
+  - Money
   layers:
   - Default
   - TransparentFX

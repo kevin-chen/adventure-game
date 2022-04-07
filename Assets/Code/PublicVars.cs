@@ -8,7 +8,7 @@ public static class PublicVars
     public static Vector3 checkPoint;
     public static int keyNum = 0;
     public static int bulletsNum = 0;
-    public static float health = 600;
+    public static float health = 600; //money
     public static float stamina;
     public static bool shootable = true;
     

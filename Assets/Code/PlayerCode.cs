@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class PlayerCode : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerCode : MonoBehaviour
     public Transform spawnPoint;
     public Transform gun;
     public AudioClip alarm;
+
+    public TextMeshProUGUI money;
 
 
     public float shoot_cooldown = 1;
@@ -209,6 +212,12 @@ public class PlayerCode : MonoBehaviour
             PublicVars.hasThirdKey = true;
             Destroy(other.gameObject);
         }
+
+        else if (other.CompareTag("Money")) {
+            PublicVars.health += 100;
+            money.text = "$" + PublicVars.health;
+            Destroy(other.gameObject);
+        }
         
         // if (other.CompareTag("FirstDoor"))
         // {
@@ -229,6 +238,14 @@ public class PlayerCode : MonoBehaviour
     //     }
     // } SEE CODE IN GUARDCODE.C
 
+    /*
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Money")) {
+            PublicVars.health += 100;
+            money.text = "$" + PublicVars.health;
+            Destroy(other.gameObject);
+        }
+    } */
 
     IEnumerator waitToUndetect()
     {
