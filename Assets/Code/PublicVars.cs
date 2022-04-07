@@ -79,5 +79,6 @@ public static class PublicVars
         "Tommy Lutz"};
 
     
-
+    //============area2===================
+    public static bool isPickedUp = false;
 }

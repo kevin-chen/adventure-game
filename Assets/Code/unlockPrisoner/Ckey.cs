@@ -20,10 +20,10 @@ public class Ckey : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player")){
-            //if(other.transform.Find("hand").transform.childCount == 0){
-            transform.position = other.transform.Find("hand").position;
-            transform.parent = other.transform.Find("hand");
-            //}
+            if(other.transform.Find("hand").transform.childCount == 0){
+                transform.position = other.transform.Find("hand").position;
+                transform.parent = other.transform.Find("hand");
+            }
         }
     }
 }

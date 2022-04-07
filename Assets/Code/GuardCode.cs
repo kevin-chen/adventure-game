@@ -32,6 +32,8 @@ public class GuardCode : MonoBehaviour
 
     private float originSpd;
     private float newSpd;
+
+    public float detectDistance = 15;
     //==========animator=====================
     Animator _ani;
 
@@ -71,10 +73,12 @@ public class GuardCode : MonoBehaviour
             }
         }
         else if(PublicVars.chase_duration <= PublicVars.chase_limit 
-                && Vector3.Distance(transform.position, player.transform.position) <= 15){
+                && Vector3.Distance(transform.position, player.transform.position) <= detectDistance){
             _navAgent.speed = newSpd;
             _navAgent.destination = player.transform.position;
         }
+
+        setDetectRange();
     }
 
     private void Update() {
@@ -99,57 +103,23 @@ public class GuardCode : MonoBehaviour
         }
     }
 
-    // IEnumerator GuardDecisionLogic() {
-    //     while (true) {
-    //         bool isPlayerDetected = PublicVars.isDetected;
-    //         if (isPlayerDetected) {
-    //             yield return new WaitForSeconds(0.1f);
-    //             _navAgent.destination = player.transform.position;
-    //         } else {
-    //             yield return new WaitForSeconds(0.4f);
-    //             if(PublicVars.isDetected) continue;
-    //             yield return new WaitForSeconds(moving_Cooldown - 0.4f);
 
-                
-    //             xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-    //             zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
-    //             // destination
-    //             Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
-    //             // adjust difference
-    //             movingDiff = dest - movingCenter;
-    //             _navAgent.SetDestination(dest);
-    //         }
-    //     }
-    // }
-
-
-    // IEnumerator newLogic(){
-    //     while(_navAgent.velocity == new Vector3(0,0,0)){
-    //         if(PublicVars.isDetected){
-    //             yield return new WaitForSeconds(0.5f);
-    //             _navAgent.destination = player.transform.position;
-    //         } else{
-    //             yield return new WaitForSeconds(0.5f);
-    //             if(PublicVars.isDetected) continue;
-    //             yield return new WaitForSeconds(moving_Cooldown - 0.5f);
-
-    //             xMovement = Random.Range(-moving_xRange - movingDiff.x, moving_xRange - movingDiff.x);
-    //             zMovement = Random.Range(-moving_zRange - movingDiff.z, moving_zRange - movingDiff.z);
-    //             // destination
-    //             Vector3 dest =  movingCenter + new Vector3(xMovement, 0, zMovement);
-    //             // adjust difference
-    //             movingDiff = dest - movingCenter;
-    //             _navAgent.SetDestination(dest);
-    //         }
-
-    //     }
-    // }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet")) {
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+    }
+
+
+    void setDetectRange(){
+        if(PublicVars.isPickedUp){
+            detectDistance = 1000;
+        }
+        else{
+            detectDistance = 15;
         }
     }
 }

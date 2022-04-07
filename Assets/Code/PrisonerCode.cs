@@ -34,7 +34,7 @@ public class PrisonerCode : MonoBehaviour
     //============release====================
     public bool isFree = false;
     public string pName;
-    // private int pNum;
+
 
     void Start()
     {
@@ -51,15 +51,10 @@ public class PrisonerCode : MonoBehaviour
 
     private void FixedUpdate() {
 
-        // getNum();
+
 
     }
 
-    // void getNum(){
-    //     if(!PublicVars.pRelease[0]) pNum = 0;
-    //     else if(!PublicVars.pRelease[1]) pNum = 1;
-    //     else pNum = 2;
-    // }
 
     private void Update() {
         //animation
@@ -104,15 +99,5 @@ public class PrisonerCode : MonoBehaviour
 
     }
 
-    // IEnumerator randomWalk(){
-
-    // }
-
-    // private void OnCollisionEnter(Collision other) {
-    //     if(other.gameObject.CompareTag("Player")){
-    //         print(pName + " is free");
-    //         isFree = true;
-    //     }
-    // }
 
 }

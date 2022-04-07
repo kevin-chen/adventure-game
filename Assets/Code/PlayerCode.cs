@@ -78,7 +78,7 @@ public class PlayerCode : MonoBehaviour
                     }
                     // create new arrow and navigate
                     Vector3 dest = hit.point;
-                    GameObject newArrow = Instantiate(arrowPrefab, dest + new Vector3(0, .0001f, 0), transform.rotation);
+                    GameObject newArrow = Instantiate(arrowPrefab, dest + new Vector3(0, .01f, 0), transform.rotation);
                     _navAgent.destination = dest;
                 }
             }
@@ -105,13 +105,6 @@ public class PlayerCode : MonoBehaviour
             //print("Velocity: " + (_navAgent.velocity != new Vector3(0,0,0)));
             _animator.SetBool("IsMoving", _navAgent.velocity != new Vector3(0,0,0));
 
-
-            // if (_navAgent.speed > 0)
-            // {
-            //     print("Speed: " + _navAgent);
-            //     _animator.SetTrigger("Walk");
-            //     print("Player Walking");
-            // }
 
 
             // assassinate

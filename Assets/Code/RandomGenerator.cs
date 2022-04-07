@@ -89,12 +89,18 @@ public class RandomGenerator : MonoBehaviour
             }
         }
         // instantiate passcode
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 3; i++){
             int num = PublicVars.passcode[i];
             print("num " + i + "=" + num);
-            Vector3 singlePos = numPos.Find("" + i).transform.position;
-            Instantiate(numPrefab.transform.Find("" + num), singlePos, transform.rotation);
+            Vector3 singlePos = numPos.Find("" + i).transform.position + new Vector3(0, 0.001f, 0);
+            Vector3 diff = new Vector3(1, 0, 0);
+            Instantiate(numPrefab.transform.Find("rom" + num), singlePos - diff, Quaternion.Euler(90,0,0));
+            Instantiate(numPrefab.transform.Find("" + num), singlePos + diff, Quaternion.Euler(90,0,0));
         }
+        Vector3 lastPos = numPos.Find("3").transform.position;
+        Vector3 ldiff = new Vector3(1, 0, 0);
+        Instantiate(numPrefab.transform.Find("rom4"), lastPos - ldiff, Quaternion.Euler(0,180,0));
+        Instantiate(numPrefab.transform.Find("" + PublicVars.passcode[3]), lastPos + ldiff, Quaternion.Euler(0,180,0));
     }
 
     //set key and door for special three
@@ -113,7 +119,12 @@ public class RandomGenerator : MonoBehaviour
         newKey.name = symbol;
         print(symbol);
     }
-    // Update is called once per frame
+
+
+
+
+    //area
+
     void Update()
     {
         
