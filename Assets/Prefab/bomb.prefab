@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8205703888247994389}
   - component: {fileID: 8205703888247994394}
   - component: {fileID: 8205703888247994395}
-  - component: {fileID: 8205703888247994390}
+  - component: {fileID: 7132284007887608700}
   - component: {fileID: 8205703888247994391}
   - component: {fileID: -1189245759843009842}
   m_Layer: 0
@@ -100,25 +100,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8205703888247994390
+--- !u!114 &7132284007887608700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8205703888247994393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed5536b376b8cde4d87d6e0137626a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 200
+  throwForce: 600
   canHold: 1
-  item: {fileID: 8205703888247994393}
+  item: {fileID: 0}
   tempParent: {fileID: 0}
   isHolding: 0
-  explosion: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
-  timeUntilExplosion: 30
+  explosion: {fileID: 0}
+  timeUntilExplosion: 60
   countdown: {fileID: 0}
 --- !u!54 &8205703888247994391
 Rigidbody:
