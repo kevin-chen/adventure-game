@@ -92,6 +92,8 @@ public class GuardCode : MonoBehaviour
                 //aud.PlayOneShot(alarm);
                 hit.collider.transform.position = PublicVars.checkPoint;
                 _playerAgent.SetDestination(PublicVars.checkPoint);
+                PublicVars.health -= 100;
+                print(PublicVars.health);
                 money.text = " $" + PublicVars.health;
                 
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerCode : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class PlayerCode : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<BackgroundMusic>().PlayMusic();
     
+        money.text = "$" + PublicVars.health;
+
         aud = GetComponent<AudioSource>();
         aud.clip = alarm;
     }
@@ -157,6 +160,10 @@ public class PlayerCode : MonoBehaviour
             }
 
 
+            //restart
+            if (PublicVars.health == 0) {
+                SceneManager.LoadScene("Game Over");
+            }
 
         }
     }
