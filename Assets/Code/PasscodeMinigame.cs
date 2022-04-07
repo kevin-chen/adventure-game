@@ -6,7 +6,7 @@ using TMPro;
 
 public class PasscodeMinigame : MonoBehaviour
 {
-    public int answer = 4301;
+    public int answer;
     int num = 1;
     int sum = 0;
     int count = 0;
@@ -18,6 +18,7 @@ public class PasscodeMinigame : MonoBehaviour
     void Start()
     {
         PasscodePressButton.ButtonPress += PressingButton;
+
     }
 
     public void TogglePauseGame()

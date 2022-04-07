@@ -35,7 +35,7 @@ public class RandomGenerator : MonoBehaviour
         }
         return false;
     }
-    async void Start()
+    void Start()
     {
         //minigame passcode
         for(int i = 0; i < 4; i++){
