@@ -47,6 +47,7 @@ public class PrisonerCode : MonoBehaviour
         newSpd = originSpd * 1.5f;
 
         pName = PublicVars.names[Random.Range(0,39)];
+        //GameObject newName = Instantiate(pName, transform.position, transform.rotation);
     }
 
     private void FixedUpdate() {
