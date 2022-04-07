@@ -32,8 +32,9 @@ public class PrisonerCode : MonoBehaviour
     //==========animator=====================
     Animator _ani;
     //============release====================
-    private bool isFree = false;
-    public static string pName;
+    public bool isFree = false;
+    public string pName;
+    // private int pNum;
 
     void Start()
     {
@@ -50,9 +51,15 @@ public class PrisonerCode : MonoBehaviour
 
     private void FixedUpdate() {
 
-    
+        // getNum();
 
     }
+
+    // void getNum(){
+    //     if(!PublicVars.pRelease[0]) pNum = 0;
+    //     else if(!PublicVars.pRelease[1]) pNum = 1;
+    //     else pNum = 2;
+    // }
 
     private void Update() {
         //animation
@@ -89,6 +96,7 @@ public class PrisonerCode : MonoBehaviour
             if (Physics.Raycast(detectRay, out hit, 1f, playerMask))
             {
                 print(pName + " is free");
+                // PublicVars.pRelease[pNum] = true;
                 isFree = true;
             }
 

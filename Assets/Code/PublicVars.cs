@@ -8,9 +8,10 @@ public static class PublicVars
     public static Vector3 checkPoint;
     public static int keyNum = 0;
     public static int bulletsNum = 0;
-    public static float health = 600; //money
+    public static float health = 1000; //money
     public static float stamina;
     public static bool shootable = true;
+
     
     //========mini game stats============
     public static bool isMiniGameActivated = false;
@@ -35,6 +36,7 @@ public static class PublicVars
     public static bool hasThirdKey = false; 
     //============area 1==================
     public static int[] prisoners = {-1, -1,- 1};
+    //public static bool[] pRelease = {false, false, false};
     public static string[] names = {"Kermit Weaver",//40 random names
         "Lindsay Moore",
         "Ronda Wells",
