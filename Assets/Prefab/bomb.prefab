@@ -118,6 +118,8 @@ MonoBehaviour:
   tempParent: {fileID: 0}
   isHolding: 0
   explosion: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
+  timeUntilExplosion: 30
+  countdown: {fileID: 0}
 --- !u!54 &8205703888247994391
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,7 +147,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
   Loop: 0

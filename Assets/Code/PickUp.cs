@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class PickUp : MonoBehaviour
 {
 public float throwForce = 600;
  Vector3 objectPos;
+ Vector3 startPos;
  float distance;
 
  public bool canHold = true;
@@ -16,14 +17,22 @@ public float throwForce = 600;
  AudioSource aud;
  public AudioClip explosion;
 
+public float timeUntilExplosion = 30;
+
+public TextMeshProUGUI countdown;
+
 // set tempParent to Bomb position under playerModel
 
 void Start() {
     aud = GetComponent<AudioSource>();
+    startPos = item.transform.position;
 } 
 
  // Update is called once per frame
  void Update () {
+
+
+  countdown.text = "0:" + (int)(timeUntilExplosion);
 
   distance = Vector3.Distance (item.transform.position, tempParent.transform.position);
   if (distance >= 5f) 
@@ -38,7 +47,24 @@ void Start() {
    item.GetComponent<Rigidbody> ().velocity = Vector3.zero;
    item.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
    item.transform.SetParent (tempParent.transform);
+   item.transform.position = tempParent.transform.position;
    StartCoroutine(Explode());
+
+   if (timeUntilExplosion > 0) {
+       timeUntilExplosion -= Time.deltaTime;
+       if (timeUntilExplosion < 10) {
+           countdown.text = "0:0" + (int)(timeUntilExplosion);
+       }
+       else {
+           countdown.text = "0:" + (int)(timeUntilExplosion);
+           if (timeUntilExplosion < 1) {
+               aud.PlayOneShot(explosion);
+           }
+       }
+   }
+   else {
+       countdown.text = "0:00";
+   }
 
    if (Input.GetKeyDown(KeyCode.E)) {
     item.GetComponent<Rigidbody> ().AddForce (tempParent.transform.forward * throwForce);
@@ -72,11 +98,11 @@ void Start() {
 //player is one of the nearby objects
 
 IEnumerator Explode() {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(30);
         Collider[] nearby = Physics.OverlapSphere(item.transform.position, 25);
         //GameObject[] nearby = Physics.OverlapSphere(item.transform.position, 25);
         foreach (var obj in nearby) {
-            if (!obj.gameObject.CompareTag("Player") && !obj.CompareTag("Floor")) {
+            if (!obj.gameObject.CompareTag("Player") && !obj.CompareTag("Floor") && !obj.CompareTag("bomb")) {
                 Destroy(obj.gameObject);
             }
         }
