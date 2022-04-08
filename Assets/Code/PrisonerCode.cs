@@ -34,6 +34,8 @@ public class PrisonerCode : MonoBehaviour
     //============release====================
     public bool isFree = false;
     public string pName;
+    //==========combate===============
+    public LayerMask guardMask;
 
 
     void Start()
@@ -44,7 +46,7 @@ public class PrisonerCode : MonoBehaviour
         _ani = GetComponent<Animator>();
         movingCenter = transform.position;
         originSpd = _navAgent.speed;
-        newSpd = originSpd * 1.5f;
+        newSpd = originSpd * 2f;
 
         pName = PublicVars.names[Random.Range(0,39)];
         //GameObject newName = Instantiate(pName, transform.position, transform.rotation);
@@ -73,6 +75,14 @@ public class PrisonerCode : MonoBehaviour
                 movingDiff = dest - movingCenter;
                 _navAgent.SetDestination(dest);
         }
+        else if(isFree && PublicVars.isPickedUp){
+            Collider[] guards = Physics.OverlapSphere(transform.position, 8, guardMask);
+            if(guards[0]){
+                _navAgent.SetDestination(guards[0].transform.position);
+            }else{
+                _navAgent.SetDestination(player.transform.position);
+            }
+        }
         else if(isFree && (Vector3.Distance(player.transform.position, transform.position) >= 3f) ){
 
             Vector3 difference = player.transform.position - transform.position;
@@ -94,10 +104,18 @@ public class PrisonerCode : MonoBehaviour
                 print(pName + " is free");
                 // PublicVars.pRelease[pNum] = true;
                 isFree = true;
+                _navAgent.speed = newSpd;
             }
 
         }
 
+    }
+
+
+    private void OnCollisionEnter(Collision other) {
+        if(PublicVars.isPickedUp && other.gameObject.CompareTag("Guard")){
+            Destroy(other.gameObject);
+        }
     }
 
 

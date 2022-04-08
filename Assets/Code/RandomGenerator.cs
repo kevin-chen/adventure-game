@@ -15,6 +15,8 @@ public class RandomGenerator : MonoBehaviour
     public GameObject door;
     public GameObject key;
 
+    public GameObject guard;
+
 
     //==========location=========
     public Vector3 code1;
@@ -26,6 +28,12 @@ public class RandomGenerator : MonoBehaviour
 
     public Transform numPos;
     public Transform kdPos;
+
+    public Transform guardPos;
+
+    //========cooldown=========
+    float timer = 3;
+    float originTimer = 3;
     
     bool FindNum(int[] arr, int target){
         foreach(int i in arr){
@@ -128,5 +136,16 @@ public class RandomGenerator : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate() {
+        if(PublicVars.isPickedUp && GameObject.Find("Guards").transform.childCount <= PublicVars.guardLimit){
+            if(timer >= 0){
+                timer -= Time.deltaTime;
+            }else{
+                Instantiate(guard, guardPos.Find("g" + Random.Range(1, 3)).transform.position, transform.rotation);
+                timer = originTimer;
+            }
+        }
     }
 }

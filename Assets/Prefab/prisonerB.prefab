@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 3164202097941296546}
   - component: {fileID: 3164202099474470853}
   - component: {fileID: 3164202099474470848}
+  - component: {fileID: 7523139516886325789}
   m_Layer: 0
   m_Name: prisonerB
   m_TagString: Prisoner
@@ -972,6 +973,9 @@ MonoBehaviour:
     m_Bits: 128
   isFree: 0
   pName: 
+  guardMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &3164202099474470848
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -994,6 +998,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &7523139516886325789
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164202097948706692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3164202097948706698
 GameObject:
   m_ObjectHideFlags: 0

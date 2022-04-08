@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 public class PickUp : MonoBehaviour
 {
     public float throwForce = 600;
     Vector3 objectPos;
     public float distance;
     public GameObject bomb;
+    public GameObject bombPrefab;
+    public Transform bombSpawn;
     public Transform bombPos;
     public bool isHolding = false;
     Rigidbody _bombRig;
@@ -15,18 +18,27 @@ public class PickUp : MonoBehaviour
     AudioSource aud;
     public AudioClip explosion;
     public float timeUntilExplosion = 15;
+    private float originalTime;
     public TextMeshProUGUI countdown;
     public Camera mainCam;
 
+    private NavMeshAgent _nmAgent;
+
+
 
     void Start() {
+
+        originalTime = timeUntilExplosion;
         aud = GetComponent<AudioSource>();
         bomb = GameObject.FindGameObjectWithTag("bomb");
+        _nmAgent = GetComponent<NavMeshAgent>();
         _bombRig = bomb.GetComponent<Rigidbody>();
         
     } 
 
     private void FixedUpdate() {
+        bomb = GameObject.FindGameObjectWithTag("bomb");
+        _bombRig = bomb.GetComponent<Rigidbody>();
         if(bomb){
             Timer();
         }
@@ -43,6 +55,7 @@ public class PickUp : MonoBehaviour
 
     //Check if isholding
             if (isHolding) {
+
                 if (Input.GetKeyDown(KeyCode.E)) {
 
                     _bombRig.isKinematic = false;
@@ -59,11 +72,15 @@ public class PickUp : MonoBehaviour
                 if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
                 {
                     if(hit.collider.CompareTag("bomb")){
+
                         PublicVars.isPickedUp = true;
                         _bombRig.isKinematic = true;
                         isHolding = true;
+                        PublicVars.shootable = true;
                         bomb.transform.position = bombPos.position;
                         bomb.transform.parent = transform;
+
+
                     }
                 }
             }
@@ -86,11 +103,17 @@ public class PickUp : MonoBehaviour
             print(obj.tag);
         }
         Destroy(bomb.gameObject);
+        PublicVars.isPickedUp = false;
         if(!GameObject.FindGameObjectWithTag("ThingToDestroy")){
             print("win");
         }
         else{
             print("lost");
+            transform.position = PublicVars.checkPoint;
+            _nmAgent.SetDestination(PublicVars.checkPoint);
+            bomb = Instantiate(bombPrefab, bombSpawn.position, Quaternion.Euler(0,0,0));
+            timeUntilExplosion = originalTime;
+            
         }
     }
 
@@ -103,7 +126,7 @@ public class PickUp : MonoBehaviour
             }
             else {
                 Explode();
-                countdown.text = "0:00";
+                countdown.text = "";
                 aud.PlayOneShot(explosion);
             }
         }

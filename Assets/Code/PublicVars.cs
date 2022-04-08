@@ -10,7 +10,7 @@ public static class PublicVars
     public static int bulletsNum = 0;
     public static float health = 1000; //money
     public static float stamina;
-    public static bool shootable = true;
+    public static bool shootable = false;
 
     
     //========mini game stats============
@@ -79,6 +79,9 @@ public static class PublicVars
         "Tommy Lutz"};
 
     
-    //============area2===================
+    //============area3===================
     public static bool isPickedUp = false;
+    public static int guardLimit = 20;
+
+    //============are
 }

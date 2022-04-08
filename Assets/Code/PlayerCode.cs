@@ -25,7 +25,7 @@ public class PlayerCode : MonoBehaviour
     public TextMeshProUGUI money;
 
 
-    public float shoot_cooldown = 1;
+    public float shoot_cooldown = 0.2f;
     private float origin_shootcool;
 
     AudioSource aud;

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140045465}
   m_LocalRotation: {x: 0.000000021855694, y: -0.000000044703484, z: 0.00000001490116, w: 1}
-  m_LocalPosition: {x: -0.19099988, y: 1.2659998, z: 0.00000017454789}
+  m_LocalPosition: {x: 0.003, y: 2.203, z: 0}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -909,6 +909,8 @@ MonoBehaviour:
   throwForce: 600
   distance: 0
   bomb: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  bombSpawn: {fileID: 0}
   bombPos: {fileID: 0}
   isHolding: 0
   explosion: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
