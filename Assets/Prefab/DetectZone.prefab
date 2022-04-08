@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3744061246369221695}
   m_Layer: 0
   m_Name: DetectZone
-  m_TagString: DetectZone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1

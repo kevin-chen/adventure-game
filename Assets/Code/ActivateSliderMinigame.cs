@@ -27,4 +27,15 @@ public class ActivateSliderMinigame : MonoBehaviour
             script.TogglePauseGame();
         }
     }
+    
+
+    private void OnCollisionEnter(Collision other) {
+    if (other.gameObject.CompareTag("Player") && !PublicVars.isMiniGameActivated)
+        {
+            print("Touching Player");
+            SliderMinigame script = gameObject.GetComponent<SliderMinigame>();
+            //Destroy(gameObject);
+            script.TogglePauseGame();
+        }
+    }
 }

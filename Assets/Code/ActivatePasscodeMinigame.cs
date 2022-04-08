@@ -27,4 +27,14 @@ public class ActivatePasscodeMinigame : MonoBehaviour
             script.TogglePauseGame();
         }
     }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Player") && PublicVars.hasFirstKey && PublicVars.hasSecondKey && !PublicVars.isMiniGameActivated && !PublicVars.isPasscodeMiniGamePassed)
+        {
+            print("Touching Player");
+            PasscodeMinigame script = gameObject.GetComponent<PasscodeMinigame>();
+            // Destroy(gameObject);
+            script.TogglePauseGame();
+        }
+    }
 }
