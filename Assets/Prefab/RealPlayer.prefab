@@ -908,13 +908,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 600
-  canHold: 1
-  item: {fileID: 8205703888247994393, guid: 580f3c961082c78418ba3424f3113b07, type: 3}
-  tempParent: {fileID: 6110796629934016568}
+  distance: 0
+  bomb: {fileID: 0}
+  bombPos: {fileID: 0}
   isHolding: 0
   explosion: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
-  timeUntilExplosion: 15
+  timeUntilExplosion: 90
   countdown: {fileID: 0}
+  mainCam: {fileID: 0}
 --- !u!195 &6110796629933594074
 NavMeshAgent:
   m_ObjectHideFlags: 0
