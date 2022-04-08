@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140045466}
   m_Layer: 0
-  m_Name: Bombposition
+  m_Name: Bomb position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140045465}
   m_LocalRotation: {x: 0.000000021855694, y: -0.000000044703484, z: 0.00000001490116, w: 1}
-  m_LocalPosition: {x: -0.51, y: 1.2659998, z: 0.00000017454789}
+  m_LocalPosition: {x: -0.19099988, y: 1.2659998, z: 0.00000017454789}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -814,10 +814,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6110796629933594072}
   - component: {fileID: 6110796629924543040}
-  - component: {fileID: 1735766482446661844}
   - component: {fileID: 6110796629933594075}
   - component: {fileID: 948923145095696110}
   - component: {fileID: 6110796629933594074}
+  - component: {fileID: 1735766482446661844}
+  - component: {fileID: 1959369801}
   - component: {fileID: 1959369805}
   m_Layer: 7
   m_Name: RealPlayer
@@ -868,20 +869,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &1735766482446661844
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6110796629934016568}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6110796629933594075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +909,7 @@ MonoBehaviour:
   throwForce: 600
   distance: 0
   bomb: {fileID: 0}
-  bombPos: {fileID: 140045466}
+  bombPos: {fileID: 0}
   isHolding: 0
   explosion: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
   timeUntilExplosion: 90
@@ -950,6 +937,36 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1735766482446661844
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110796629934016568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &1959369801
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110796629934016568}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!82 &1959369805
 AudioSource:
   m_ObjectHideFlags: 0

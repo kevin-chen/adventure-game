@@ -1,0 +1,11 @@
+Model Information:
+* title:	beef stew
+* source:	https://sketchfab.com/3d-models/beef-stew-2bd76952a7a24ca7ac7bd5d7940de959
+* author:	GoldGryphon (https://sketchfab.com/GoldGryphon)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "beef stew" (https://sketchfab.com/3d-models/beef-stew-2bd76952a7a24ca7ac7bd5d7940de959) by GoldGryphon (https://sketchfab.com/GoldGryphon) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

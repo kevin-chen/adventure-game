@@ -89,14 +89,17 @@ public class GuardCode : MonoBehaviour
         if(true){
             RaycastHit hit;
             Ray detectRay = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(transform.position, transform.forward * 2.2f);
-            if (Physics.Raycast(detectRay, out hit, 2f, playerMask))
+            Debug.DrawRay(transform.position, transform.forward);
+            if (Physics.Raycast(detectRay, out hit, 1f, playerMask))
             {
                 print("arrested");
+                //aud.PlayOneShot(alarm);
                 hit.collider.isTrigger = true;
                 hit.collider.transform.position = PublicVars.checkPoint;
                 _playerAgent.SetDestination(PublicVars.checkPoint);
                 hit.collider.isTrigger = false;
+                PublicVars.health -= 100;
+                print(PublicVars.health);
                 money.text = " $" + PublicVars.health;
                 
             }

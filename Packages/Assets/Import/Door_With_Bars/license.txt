@@ -1,0 +1,11 @@
+Model Information:
+* title:	Door With Bars
+* source:	https://sketchfab.com/3d-models/door-with-bars-63cd822eb4f643c2a86d1c9b6153a617
+* author:	IssaMaia (https://sketchfab.com/IssaMaia)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Door With Bars" (https://sketchfab.com/3d-models/door-with-bars-63cd822eb4f643c2a86d1c9b6153a617) by IssaMaia (https://sketchfab.com/IssaMaia) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

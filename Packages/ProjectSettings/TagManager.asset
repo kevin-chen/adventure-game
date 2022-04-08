@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Key
+  - Bullet
+  - BackgroundMusic
+  - DetectZone
+  - Back
+  - Guard
+  - Arrow
+  - Floor
+  - FirstKey
+  - SecondKey
+  - ThirdKey
+  - FirstDoor
+  - SecondDoor
+  - ThirdDoor
+  - Money
+  - Prisoner
+  - bomb
+  - ThingToDestroy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Bullet
+  - Player
+  - Ground
+  - wall
+  - slidingdoor
+  - Back
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
