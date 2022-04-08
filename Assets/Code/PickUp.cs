@@ -71,6 +71,25 @@ public class PickUp : MonoBehaviour
 
     }
 
+
+    // void OnMouseDown() 
+    // {
+    //     if (distance <= 5f)
+    //     {
+    //         if(gameObject.name == "bomb"){
+    //             print("click");
+    //             _bombRig = gameObject.GetComponent<Rigidbody>();
+    //             _bombRig.isKinematic = true;
+    //             isHolding = true;
+    //             PublicVars.isPickedUp = true;
+    //             gameObject.transform.parent = transform;
+    //             gameObject.transform.position = transform.Find("Bombposition").position;
+    //             // gameObject.GetComponent<Rigidbody>().useGravity = false;
+    //             // gameObject.GetComponent<Rigidbody>().detectCollisions = true;
+    //         }
+
+    //     }
+    // }
  
 //this will later be modified to decrease the player's health if the
 //player is one of the nearby objects
@@ -79,19 +98,11 @@ public class PickUp : MonoBehaviour
         Collider[] nearby = Physics.OverlapSphere(bomb.transform.position, 25);
         //GameObject[] nearby = Physics.OverlapSphere(bomb.transform.position, 25);
         foreach (var obj in nearby) {
-            if(obj.name == "a"){
-
+            if (obj.CompareTag("ThingToDestroy")) {
                 Destroy(obj.gameObject);
             }
-            print(obj.tag);
         }
         Destroy(bomb.gameObject);
-        if(!GameObject.FindGameObjectWithTag("ThingToDestroy")){
-            print("win");
-        }
-        else{
-            print("lost");
-        }
     }
 
     void Timer(){
