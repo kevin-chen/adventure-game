@@ -76,16 +76,14 @@ public class PrisonerCode : MonoBehaviour
                 _navAgent.SetDestination(dest);
         }
         else if(isFree && PublicVars.isPickedUp){
-            if(GameObject.FindGameObjectWithTag("Guard")){
+            if(Vector3.Distance(GameObject.FindGameObjectWithTag("Guard").transform.position, player.transform.position) <= 5){
                 _navAgent.SetDestination(GameObject.FindGameObjectWithTag("Guard").transform.position);
             }else{
                 _navAgent.SetDestination(player.transform.position);
             }
         }
         else if(isFree && (Vector3.Distance(player.transform.position, transform.position) >= 3f) ){
-
-            Vector3 difference = player.transform.position - transform.position;
-            _navAgent.SetDestination(player.transform.position - difference/1.1f);
+            _navAgent.SetDestination(player.transform.position);
         }
         else if(isFree && (Vector3.Distance(player.transform.position, transform.position) < 3f ) ){
             _navAgent.SetDestination(transform.position);
