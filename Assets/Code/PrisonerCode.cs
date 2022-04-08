@@ -89,7 +89,7 @@ public class PrisonerCode : MonoBehaviour
             RaycastHit hit;
             Ray detectRay = new Ray(transform.position, transform.forward);
             Debug.DrawRay(transform.position, transform.forward);
-            if (Physics.Raycast(detectRay, out hit, 1f, playerMask))
+            if (Physics.Raycast(detectRay, out hit, 3f, playerMask))
             {
                 print(pName + " is free");
                 // PublicVars.pRelease[pNum] = true;

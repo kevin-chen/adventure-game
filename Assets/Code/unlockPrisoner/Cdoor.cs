@@ -42,12 +42,14 @@ public class Cdoor : MonoBehaviour
         print(code);
         if (other.gameObject.CompareTag("Player") && other.gameObject.transform.Find("hand").Find(code)) {
             Destroy(other.gameObject.transform.Find("hand").Find(code).gameObject);
-            transform.Translate(500, 0, 0);
+            Destroy(transform.gameObject);
+            //transform.Translate(500, 0, 0);
 
         }
 
         if(other.gameObject.CompareTag("Player") && code == "onetotwo" && checkAllRelease() == 3){
-            transform.Translate(500, 0, 0);
+            Destroy(transform.gameObject);
+            //transform.Translate(500, 0, 0);
         }
     }
 
