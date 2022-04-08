@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 public class PickUp : MonoBehaviour
 {
     public float throwForce = 600;
@@ -26,6 +27,7 @@ public class PickUp : MonoBehaviour
 
 
 
+
     void Start() {
 
         originalTime = timeUntilExplosion;
@@ -33,6 +35,7 @@ public class PickUp : MonoBehaviour
         bomb = GameObject.FindGameObjectWithTag("bomb");
         _nmAgent = GetComponent<NavMeshAgent>();
         _bombRig = bomb.GetComponent<Rigidbody>();
+
         
     } 
 
@@ -96,25 +99,26 @@ public class PickUp : MonoBehaviour
         Collider[] nearby = Physics.OverlapSphere(bomb.transform.position, 25);
         //GameObject[] nearby = Physics.OverlapSphere(bomb.transform.position, 25);
         foreach (var obj in nearby) {
-            if(obj.name == "a"){
-
+            if(obj.CompareTag("ThingToDestroy")){
+                obj.transform.name = "b";
                 Destroy(obj.gameObject);
             }
             print(obj.tag);
         }
+        foreach (var obj in nearby) {
+            if(obj.transform.name == "b"){
+                PublicVars.isPickedUp = false;
+                Destroy(bomb.gameObject);
+                SceneManager.LoadScene("WinScreen");
+            }
+        }
         Destroy(bomb.gameObject);
-        PublicVars.isPickedUp = false;
-        if(!GameObject.FindGameObjectWithTag("ThingToDestroy")){
-            print("win");
-        }
-        else{
-            print("lost");
-            transform.position = PublicVars.checkPoint;
-            _nmAgent.SetDestination(PublicVars.checkPoint);
-            bomb = Instantiate(bombPrefab, bombSpawn.position, Quaternion.Euler(0,0,0));
-            timeUntilExplosion = originalTime;
+        print("lost");
+        transform.position = PublicVars.checkPoint;
+        _nmAgent.SetDestination(PublicVars.checkPoint);
+        bomb = Instantiate(bombPrefab, bombSpawn.position, Quaternion.Euler(0,0,0));
+        timeUntilExplosion = originalTime;
             
-        }
     }
 
     void Timer(){

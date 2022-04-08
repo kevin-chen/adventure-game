@@ -76,9 +76,8 @@ public class PrisonerCode : MonoBehaviour
                 _navAgent.SetDestination(dest);
         }
         else if(isFree && PublicVars.isPickedUp){
-            Collider[] guards = Physics.OverlapSphere(transform.position, 8, guardMask);
-            if(guards[0]){
-                _navAgent.SetDestination(guards[0].transform.position);
+            if(GameObject.FindGameObjectWithTag("Guard")){
+                _navAgent.SetDestination(GameObject.FindGameObjectWithTag("Guard").transform.position);
             }else{
                 _navAgent.SetDestination(player.transform.position);
             }
