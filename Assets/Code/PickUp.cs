@@ -36,6 +36,9 @@ public class PickUp : MonoBehaviour
         _nmAgent = GetComponent<NavMeshAgent>();
         _bombRig = bomb.GetComponent<Rigidbody>();
 
+        countdown.gameObject.SetActive(false);
+        transform.Find("Gun Pivot").gameObject.SetActive(false);
+
         
     } 
 
@@ -75,7 +78,8 @@ public class PickUp : MonoBehaviour
                 if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
                 {
                     if(hit.collider.CompareTag("bomb")){
-
+                        transform.Find("Gun Pivot").gameObject.SetActive(true);
+                        countdown.gameObject.SetActive(true);
                         PublicVars.isPickedUp = true;
                         _bombRig.isKinematic = true;
                         isHolding = true;
@@ -107,11 +111,15 @@ public class PickUp : MonoBehaviour
         }
         foreach (var obj in nearby) {
             if(obj.transform.name == "b"){
+                countdown.gameObject.SetActive(false);
                 PublicVars.isPickedUp = false;
                 Destroy(bomb.gameObject);
+                transform.Find("Gun Pivot").gameObject.SetActive(false);
+                PublicVars.shootable = false;
                 SceneManager.LoadScene("WinScreen");
             }
         }
+        countdown.gameObject.SetActive(false);
         PublicVars.isPickedUp = false;
         Destroy(bomb.gameObject);
         print("lost");

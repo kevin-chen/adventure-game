@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GuardCode : MonoBehaviour
 {
     //============UI==========
@@ -99,6 +100,9 @@ public class GuardCode : MonoBehaviour
                 _playerAgent.SetDestination(PublicVars.checkPoint);
                 hit.collider.isTrigger = false;
                 PublicVars.health -= 100;
+                if(PublicVars.health <= 0){
+                    SceneManager.LoadScene("Game Over");
+                }
                 print(PublicVars.health);
                 money.text = " $" + PublicVars.health;
                 
