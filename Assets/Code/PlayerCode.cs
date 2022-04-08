@@ -218,35 +218,8 @@ public class PlayerCode : MonoBehaviour
             money.text = "$" + PublicVars.health;
             Destroy(other.gameObject);
         }
-        
-        // if (other.CompareTag("FirstDoor"))
-        // {
-        //     print("hit door");
-        //     //Destroy(other.gameObject);
-        // }
 
     }
-
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     // be arrested
-
-    //     if (other.gameObject.CompareTag("Guard"))
-    //     {
-    //         transform.position = PublicVars.checkPoint;
-    //         _navAgent.SetDestination(PublicVars.checkPoint);
-    //     }
-    // } SEE CODE IN GUARDCODE.C
-
-    /*
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Money")) {
-            PublicVars.health += 100;
-            money.text = "$" + PublicVars.health;
-            Destroy(other.gameObject);
-        }
-    } */
-
     IEnumerator waitToUndetect()
     {
         while (true)
