@@ -37,6 +37,7 @@ public class SliderMinigame : MonoBehaviour
             // print("active");
             OscillateBar();
             CheckStopBar();
+            if (Input.GetKeyDown(KeyCode.Q)) { StartCoroutine(FinishMinigame()); }
         }
 
         if (PublicVars.isSliderMiniGamePassed){

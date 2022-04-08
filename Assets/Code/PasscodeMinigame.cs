@@ -87,7 +87,7 @@ public class PasscodeMinigame : MonoBehaviour
         }
         else
         {
-
+            if (Input.GetKeyDown(KeyCode.Q)) { StartCoroutine(FinishMinigame()); }
         }
         if(PublicVars.isPasscodeMiniGamePassed){
             myTrans.Translate(500, 0, 0);
