@@ -274,4 +274,11 @@ public class PlayerCode : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.CompareTag("Guard")){
+            transform.position = PublicVars.checkPoint;
+            _navAgent.SetDestination(PublicVars.checkPoint);
+        }
+    }
 }

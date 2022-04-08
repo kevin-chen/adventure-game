@@ -2735,6 +2735,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+  detectDistance: 15
 --- !u!195 &3388278861422236157
 NavMeshAgent:
   m_ObjectHideFlags: 0

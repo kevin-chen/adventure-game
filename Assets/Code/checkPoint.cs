@@ -7,7 +7,7 @@ public class checkPoint : MonoBehaviour
     private Material selfColor;
     public Material deactiveColor;
     public Material activeColor;
-    private Vector3 local_pos;
+    public Vector3 local_pos;
     // private ParticleSystem particle;
 
     private void Start() {
