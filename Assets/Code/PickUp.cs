@@ -112,6 +112,7 @@ public class PickUp : MonoBehaviour
                 SceneManager.LoadScene("WinScreen");
             }
         }
+        PublicVars.isPickedUp = false;
         Destroy(bomb.gameObject);
         print("lost");
         transform.position = PublicVars.checkPoint;

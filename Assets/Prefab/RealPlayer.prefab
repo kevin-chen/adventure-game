@@ -914,7 +914,7 @@ MonoBehaviour:
   bombPos: {fileID: 0}
   isHolding: 0
   explosion: {fileID: 8300000, guid: 0b84ec5e42aa25f4dac0eeb626e8d56c, type: 3}
-  timeUntilExplosion: 60
+  timeUntilExplosion: 80
   countdown: {fileID: 0}
   mainCam: {fileID: 0}
 --- !u!195 &6110796629933594074

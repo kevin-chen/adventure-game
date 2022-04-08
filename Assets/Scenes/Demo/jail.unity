@@ -43377,10 +43377,6 @@ PrefabInstance:
       propertyPath: tempParent
       value: 
       objectReference: {fileID: 773662003}
-    - target: {fileID: 948923145095696110, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
-      propertyPath: timeUntilExplosion
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1735766482446661844, guid: 4c59e735dddf74f34bc2195ec4423acc, type: 3}
       propertyPath: m_Height
       value: 3
