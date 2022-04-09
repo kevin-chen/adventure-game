@@ -76,7 +76,7 @@ public class PrisonerCode : MonoBehaviour
                 _navAgent.SetDestination(dest);
         }
         else if(isFree && PublicVars.isPickedUp){
-            if(Vector3.Distance(GameObject.FindGameObjectWithTag("Guard").transform.position, player.transform.position) <= 5){
+            if(Vector3.Distance(GameObject.FindGameObjectWithTag("Guard").transform.position, player.transform.position) <= 12){
                 _navAgent.SetDestination(GameObject.FindGameObjectWithTag("Guard").transform.position);
             }else{
                 _navAgent.SetDestination(player.transform.position);
