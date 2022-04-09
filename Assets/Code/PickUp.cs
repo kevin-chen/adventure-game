@@ -32,9 +32,9 @@ public class PickUp : MonoBehaviour
 
         originalTime = timeUntilExplosion;
         aud = GetComponent<AudioSource>();
-        bomb = GameObject.FindGameObjectWithTag("bomb");
+        //bomb = GameObject.FindGameObjectWithTag("bomb");
         _nmAgent = GetComponent<NavMeshAgent>();
-        _bombRig = bomb.GetComponent<Rigidbody>();
+        //_bombRig = bomb.GetComponent<Rigidbody>();
 
         countdown.gameObject.SetActive(false);
         transform.Find("Gun Pivot").gameObject.SetActive(false);
@@ -43,12 +43,13 @@ public class PickUp : MonoBehaviour
     } 
 
     private void FixedUpdate() {
-        bomb = GameObject.FindGameObjectWithTag("bomb");
-        _bombRig = bomb.GetComponent<Rigidbody>();
+        // bomb = GameObject.FindGameObjectWithTag("bomb");
+        // _bombRig = bomb.GetComponent<Rigidbody>();
         if(bomb){
             Timer();
         }
     }
+    
     void Update () {
         
         if(bomb){
@@ -63,7 +64,7 @@ public class PickUp : MonoBehaviour
             if (isHolding) {
 
                 if (Input.GetKeyDown(KeyCode.E)) {
-
+                    bomb.GetComponent<Collider>().enabled = true;
                     _bombRig.isKinematic = false;
                     bomb.transform.SetParent(null);
                     bomb.GetComponent<Rigidbody>().AddForce(bombPos.transform.forward * throwForce);
@@ -78,6 +79,9 @@ public class PickUp : MonoBehaviour
                 if (Physics.Raycast(mainCam.ScreenPointToRay(Input.mousePosition), out hit, 200))
                 {
                     if(hit.collider.CompareTag("bomb")){
+                        bomb = hit.collider.gameObject;
+                        _bombRig = bomb.GetComponent<Rigidbody>();
+                        hit.collider.enabled = false;
                         transform.Find("Gun Pivot").gameObject.SetActive(true);
                         countdown.gameObject.SetActive(true);
                         PublicVars.isPickedUp = true;
@@ -86,8 +90,6 @@ public class PickUp : MonoBehaviour
                         PublicVars.shootable = true;
                         bomb.transform.position = bombPos.position;
                         bomb.transform.parent = transform;
-
-
                     }
                 }
             }
@@ -126,6 +128,7 @@ public class PickUp : MonoBehaviour
         transform.position = PublicVars.checkPoint;
         _nmAgent.SetDestination(PublicVars.checkPoint);
         bomb = Instantiate(bombPrefab, bombSpawn.position, Quaternion.Euler(0,0,0));
+        _bombRig = bomb.GetComponent<Rigidbody>();
         timeUntilExplosion = originalTime;
             
     }

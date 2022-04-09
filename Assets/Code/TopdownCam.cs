@@ -47,13 +47,13 @@ public class TopdownCam : MonoBehaviour
         float difference = Time.deltaTime * adjustMultiplier;
         if(Input.GetKey("1")) angle -= difference;
         if(Input.GetKey("3")) angle += difference;
-        if(Input.GetKey("=") && Mathf.Max(height, heightMax) == heightMax){
-            height += difference;
-            distance += (difference * 0.7f);
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f && Mathf.Max(height, heightMax) == heightMax){
+            height += difference * 3;
+            distance += (difference * 3f * 0.7f);
         }
-        if(Input.GetKey("-") && Mathf.Min(height, heightMin) == heightMin){
-            height -= difference;
-            distance -= (difference * 0.7f);
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f && Mathf.Min(height, heightMin) == heightMin){
+            height -= difference * 3;
+            distance -= (difference * 3f * 0.7f);
         }
     }
 }

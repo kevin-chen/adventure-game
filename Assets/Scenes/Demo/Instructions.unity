@@ -160,7 +160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 300}
+  m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126398755
 MonoBehaviour:
@@ -191,7 +191,14 @@ MonoBehaviour:
     Camera
     rotation: 1/3
 
-    Camera zoom: -/+
+    Camera zoom: mouse wheel
+
+    Shoot: right mouse button
+
+    Grab
+    the bomb; left mouse button
+
+    Drop the bomb: e
 
 '
   m_isRightToLeft: 0
