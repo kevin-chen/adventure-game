@@ -118,6 +118,8 @@ public class PickUp : MonoBehaviour
                 Destroy(bomb.gameObject);
                 transform.Find("Gun Pivot").gameObject.SetActive(false);
                 PublicVars.shootable = false;
+                _nmAgent.SetDestination(obj.transform.position);
+                StartCoroutine(wait2sec());
                 SceneManager.LoadScene("WinScreen");
             }
         }
@@ -125,8 +127,7 @@ public class PickUp : MonoBehaviour
         PublicVars.isPickedUp = false;
         Destroy(bomb.gameObject);
         print("lost");
-        transform.position = PublicVars.checkPoint;
-        _nmAgent.SetDestination(PublicVars.checkPoint);
+        _nmAgent.Warp(PublicVars.checkPoint);
         bomb = Instantiate(bombPrefab, bombSpawn.position, Quaternion.Euler(0,0,0));
         _bombRig = bomb.GetComponent<Rigidbody>();
         timeUntilExplosion = originalTime;
@@ -146,5 +147,10 @@ public class PickUp : MonoBehaviour
                 aud.PlayOneShot(explosion);
             }
         }
+    }
+
+
+    IEnumerator wait2sec(){
+        yield return new WaitForSeconds(2f);
     }
 }

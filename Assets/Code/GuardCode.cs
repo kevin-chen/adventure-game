@@ -96,8 +96,7 @@ public class GuardCode : MonoBehaviour
                 print("arrested");
                 //aud.PlayOneShot(alarm);
                 hit.collider.isTrigger = true;
-                hit.collider.transform.position = PublicVars.checkPoint;
-                _playerAgent.SetDestination(PublicVars.checkPoint);
+                _playerAgent.Warp(PublicVars.checkPoint);
                 hit.collider.isTrigger = false;
                 PublicVars.health -= 100;
                 if(PublicVars.health <= 0){
