@@ -155,6 +155,14 @@ public class PlayerCode : MonoBehaviour
 
             //restart
             if (PublicVars.health == 0) {
+                PublicVars.shootable = false;
+                transform.Find("Gun Position").gameObject.SetActive(false);
+                PublicVars.hasFirstKey = false;
+                PublicVars.hasSecondKey = false;
+                PublicVars.hasThirdKey = false;
+                PublicVars.isSliderMiniGamePassed = false;
+                PublicVars.isPasscodeMiniGamePassed = false;
+                PublicVars.isMiniGameActivated = false;
                 SceneManager.LoadScene("Game Over");
             }
 
@@ -220,31 +228,5 @@ public class PlayerCode : MonoBehaviour
         }
 
     }
-    IEnumerator waitToUndetect()
-    {
-        while (true)
-        {
-            if (PublicVars.isDetected)
-            {
-                yield return new WaitForSeconds(8);
-                PublicVars.isDetected = false;
-            }
-            else
-            {
-                yield return new WaitForSeconds(0.5f);
-                RaycastHit hit;
-                Ray detectRay = new Ray(transform.Find("feet").position + new Vector3(0, 0.1f, 0), transform.forward);
-                if (Physics.Raycast(detectRay, out hit, 0.1f))
-                {
-                    if (hit.collider.CompareTag("DetectZone"))
-                    {
-                        //print("detected");
-                        continue;
-                    }
-                }
-                PublicVars.isDetected = false;
-                break;
-            }
-        }
-    }
+
 }

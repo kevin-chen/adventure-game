@@ -47,7 +47,7 @@ public class Cdoor : MonoBehaviour
 
         }
 
-        if(other.gameObject.CompareTag("Player") && code == "onetotwo" && checkAllRelease() == 3){
+        if(other.gameObject.CompareTag("Player") && code == "onetotwo" && checkAllRelease() >= 3){
             Destroy(transform.gameObject);
             //transform.Translate(500, 0, 0);
         }

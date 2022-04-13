@@ -120,7 +120,7 @@ public class PickUp : MonoBehaviour
                 PublicVars.shootable = false;
                 _nmAgent.SetDestination(obj.transform.position);
                 StartCoroutine(wait2sec());
-                SceneManager.LoadScene("WinScreen");
+
             }
         }
         countdown.gameObject.SetActive(false);
@@ -152,5 +152,7 @@ public class PickUp : MonoBehaviour
 
     IEnumerator wait2sec(){
         yield return new WaitForSeconds(2f);
+        transform.Find("Gun Pivot").gameObject.SetActive(false);
+        SceneManager.LoadScene("WinScreen");
     }
 }
